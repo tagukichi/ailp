@@ -1,12 +1,12 @@
 /* ============================================================
-   VoxiaAI — Interactions
+   xVoice — Interactions
    ============================================================ */
 
 (function () {
   'use strict';
 
   /* ==========================================================
-     1. Hamburger menu (CLAUDE.md準拠の標準パターン)
+     1. Hamburger menu
      ========================================================== */
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -59,30 +59,29 @@
      ========================================================== */
   const revealTargets = [
     '.sec-head',
-    '.issue-card',
+    '.issue-check',
+    '.issue-bridge',
+    '.reason-hero',
+    '.reason-card',
+    '.benefit-card',
     '.feature-row',
-    '.func-item',
-    '.effect-card',
-    '.case-card',
+    '.support-card',
     '.flow-card',
-    '.price-card',
     '.faq-item',
     '.cta-inner',
     '.hero-content',
-    '.hero-visual',
-    '.insight-card'
+    '.hero-visual'
   ];
 
   const reveals = document.querySelectorAll(revealTargets.join(','));
-  reveals.forEach((el, i) => {
+  reveals.forEach((el) => {
     el.classList.add('reveal');
     if (el.parentElement && (
-      el.matches('.issue-card') ||
-      el.matches('.func-item') ||
-      el.matches('.effect-card') ||
-      el.matches('.case-card') ||
+      el.matches('.issue-check') ||
+      el.matches('.reason-card') ||
+      el.matches('.benefit-card') ||
+      el.matches('.support-card') ||
       el.matches('.flow-card') ||
-      el.matches('.price-card') ||
       el.matches('.faq-item')
     )) {
       const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
@@ -112,14 +111,13 @@
 
     reveals.forEach((el) => io.observe(el));
   }
-  // Fallback in case IO does not fire (preview env, certain headless browsers)
   window.addEventListener('scroll', checkAllReveals, { passive: true });
   window.addEventListener('load', checkAllReveals);
   setTimeout(checkAllReveals, 200);
   setTimeout(checkAllReveals, 1200);
 
   /* ==========================================================
-     4. Number count-up (effects + hero meta)
+     4. Number count-up
      ========================================================== */
   const counters = document.querySelectorAll('em[data-count]');
 
@@ -134,9 +132,10 @@
       const p = Math.min((Date.now() - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       const value = target * eased;
-      el.textContent = isFloat ? value.toFixed(1) : Math.round(value).toString();
+      const formatted = isFloat ? value.toFixed(1) : Math.round(value).toLocaleString('en-US');
+      el.textContent = formatted;
       if (p < 1) setTimeout(tick, 32);
-      else el.textContent = isFloat ? target.toFixed(1) : String(target);
+      else el.textContent = isFloat ? target.toFixed(1) : Math.round(target).toLocaleString('en-US');
     };
     tick();
   };
@@ -164,14 +163,13 @@
     }, { threshold: 0.3 });
     counters.forEach((el) => io2.observe(el));
   }
-  // Fallback: scroll-based + initial check (covers IO-unfriendly environments)
   window.addEventListener('scroll', checkAllCounters, { passive: true });
   window.addEventListener('load', checkAllCounters);
   setTimeout(checkAllCounters, 200);
   setTimeout(checkAllCounters, 1200);
 
   /* ==========================================================
-     7. IVR flow stepping animation (Feature 01)
+     5. IVR flow stepping animation (Feature 01)
      ========================================================== */
   const ivrFlow = document.querySelector('[data-ivr-flow]');
   if (ivrFlow) {
@@ -200,18 +198,8 @@
       tick();
       timer = setInterval(tick, 1700);
     };
-    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
 
     let started = false;
-    const checkIvr = () => {
-      if (started) return;
-      const r = ivrFlow.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        started = true;
-        start();
-      }
-    };
-
     if ('IntersectionObserver' in window) {
       const io3 = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -220,6 +208,14 @@
       }, { threshold: 0.3 });
       io3.observe(ivrFlow);
     }
+    const checkIvr = () => {
+      if (started) return;
+      const r = ivrFlow.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        started = true;
+        start();
+      }
+    };
     window.addEventListener('scroll', checkIvr, { passive: true });
     window.addEventListener('load', checkIvr);
     setTimeout(checkIvr, 200);
@@ -227,165 +223,7 @@
   }
 
   /* ==========================================================
-     8. Chart.js — Weekly Insight (bar) & Auto-classify (doughnut)
-     ========================================================== */
-  const initCharts = () => {
-    if (typeof Chart === 'undefined') return;
-
-    Chart.defaults.font.family = '"Space Grotesk", "Noto Sans JP", sans-serif';
-    Chart.defaults.font.size = 12;
-    Chart.defaults.color = '#5a6b82';
-
-    /* ---- Bar chart: Weekly Insight ---- */
-    const barCanvas = document.getElementById('insightBarChart');
-    if (barCanvas) {
-      const ctx = barCanvas.getContext('2d');
-      const grad = ctx.createLinearGradient(0, 0, 0, 220);
-      grad.addColorStop(0, '#2c6bff');
-      grad.addColorStop(1, '#00c2d1');
-
-      const barChart = new Chart(barCanvas, {
-        type: 'bar',
-        data: {
-          labels: ['料金', '仕様', '導入', 'サポート', '解約'],
-          datasets: [{
-            label: '件数',
-            data: [42, 78, 55, 34, 64],
-            backgroundColor: grad,
-            borderRadius: { topLeft: 6, topRight: 6, bottomLeft: 2, bottomRight: 2 },
-            borderSkipped: false,
-            barThickness: 26,
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          animation: { duration: 1400, easing: 'easeOutQuart' },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: '#0a2540',
-              padding: 10,
-              titleColor: '#fff',
-              bodyColor: '#fff',
-              displayColors: false,
-              cornerRadius: 8,
-            }
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              border: { display: false },
-              ticks: { color: '#8794a8', font: { size: 11 } }
-            },
-            y: {
-              beginAtZero: true,
-              grid: { color: 'rgba(11,27,46,.06)', drawTicks: false },
-              border: { display: false },
-              ticks: { color: '#a9b6cf', font: { size: 10 }, padding: 8, maxTicksLimit: 4 }
-            }
-          }
-        }
-      });
-
-      // Trigger animation on visibility (with fallback)
-      let barPlayed = false;
-      const playBar = () => {
-        if (barPlayed) return;
-        const r = barCanvas.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) {
-          barPlayed = true;
-          barChart.update();
-        }
-      };
-      if ('IntersectionObserver' in window) {
-        const ioBar = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !barPlayed) {
-              barPlayed = true;
-              barChart.update();
-              ioBar.disconnect();
-            }
-          });
-        }, { threshold: 0.3 });
-        ioBar.observe(barCanvas);
-      }
-      window.addEventListener('scroll', playBar, { passive: true });
-      setTimeout(playBar, 300);
-    }
-
-    /* ---- Doughnut chart: Inquiry auto-classify ---- */
-    const dCanvas = document.getElementById('insightDoughnut');
-    if (dCanvas) {
-      const colors = ['#2c6bff', '#00c2d1', '#7b8cff', '#5fd6e0', '#a9b6cf'];
-      const doughnut = new Chart(dCanvas, {
-        type: 'doughnut',
-        data: {
-          labels: ['料金・見積', '製品仕様', '導入相談', 'サポート', 'その他'],
-          datasets: [{
-            data: [32, 24, 18, 14, 12],
-            backgroundColor: colors,
-            borderColor: 'transparent',
-            borderWidth: 0,
-            hoverOffset: 8,
-            spacing: 2,
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          cutout: '68%',
-          animation: { animateRotate: true, animateScale: false, duration: 1500, easing: 'easeOutQuart' },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: '#0a2540',
-              padding: 10,
-              titleColor: '#fff',
-              bodyColor: '#fff',
-              cornerRadius: 8,
-              callbacks: {
-                label: (ctx) => ` ${ctx.label}: ${ctx.parsed}%`
-              }
-            }
-          }
-        }
-      });
-
-      let dPlayed = false;
-      const playD = () => {
-        if (dPlayed) return;
-        const r = dCanvas.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) {
-          dPlayed = true;
-          doughnut.update();
-        }
-      };
-      if ('IntersectionObserver' in window) {
-        const ioD = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !dPlayed) {
-              dPlayed = true;
-              doughnut.update();
-              ioD.disconnect();
-            }
-          });
-        }, { threshold: 0.3 });
-        ioD.observe(dCanvas);
-      }
-      window.addEventListener('scroll', playD, { passive: true });
-      setTimeout(playD, 300);
-    }
-  };
-
-  if (document.readyState === 'complete') {
-    initCharts();
-  } else {
-    window.addEventListener('load', initCharts);
-  }
-
-  /* ==========================================================
-     5. FAQ accordion
+     6. FAQ accordion
      ========================================================== */
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach((item) => {
@@ -405,7 +243,7 @@
   });
 
   /* ==========================================================
-     6. Smooth-scroll offset for fixed header
+     7. Smooth-scroll offset for fixed header
      ========================================================== */
   const navLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
   navLinks.forEach((link) => {
