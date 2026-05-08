@@ -367,6 +367,39 @@
   });
 
   /* ==========================================================
+     7b. Floating CTA (sticky button, hides over CTA section)
+     ========================================================== */
+  const floatingCta = document.querySelector('[data-floating-cta]');
+  if (floatingCta) {
+    const ctaSection = document.querySelector('#contact');
+    let ctaInView = false;
+
+    const updateVisibility = () => {
+      const showByScroll = window.scrollY > window.innerHeight * 0.6;
+      if (showByScroll && !ctaInView) {
+        floatingCta.classList.add('is-visible');
+        floatingCta.classList.remove('is-near-cta');
+      } else if (ctaInView) {
+        floatingCta.classList.add('is-near-cta');
+      } else {
+        floatingCta.classList.remove('is-visible', 'is-near-cta');
+      }
+    };
+
+    if ('IntersectionObserver' in window && ctaSection) {
+      const ctaIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          ctaInView = entry.isIntersecting;
+          updateVisibility();
+        });
+      }, { threshold: 0.05 });
+      ctaIo.observe(ctaSection);
+    }
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    updateVisibility();
+  }
+
+  /* ==========================================================
      8. Smooth-scroll offset for fixed header
      ========================================================== */
   const navLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
