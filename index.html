@@ -112,10 +112,15 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <div class="visual-card visual-main">
+          <div class="visual-card visual-main" data-call-cycle>
             <div class="visual-card-head">
-              <span class="visual-pill visual-pill-live">
+              <span class="visual-pill visual-pill-live state-1">
                 <span class="live-dot"></span>着信中
+              </span>
+              <span class="visual-pill visual-pill-done state-2">
+                <span class="done-dot">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>通話終了
               </span>
               <span class="visual-time">02:14 AM</span>
             </div>
@@ -130,7 +135,7 @@
               <span class="caller-tag">外線</span>
             </div>
 
-            <div class="visual-block">
+            <div class="visual-block visual-block-customer">
               <div class="block-tag">
                 <span class="tag-icon"></span>お客様情報 ｜ CRM 連携
               </div>
@@ -144,23 +149,40 @@
               </div>
             </div>
 
-            <div class="visual-block visual-block-ai">
+            <div class="visual-block visual-block-live state-1">
+              <div class="block-tag">
+                <span class="tag-icon tag-icon-rec"></span>会話を文字起こし中
+                <span class="rec-tag"><i></i>REC</span>
+              </div>
+              <p class="transcription"><span class="typed" data-typewriter="「あの、定期点検の予約をお願いしたいのですが、来週の空いている日を教えていただけますか…」"></span><span class="caret" aria-hidden="true"></span></p>
+            </div>
+
+            <div class="visual-block visual-block-ai state-2">
               <div class="block-tag">
                 <span class="tag-icon tag-icon-ai"></span>AI 要約
                 <span class="confidence">Confidence 96%</span>
               </div>
-              <p class="ai-summary-text">「定期点検の予約をお願いしたい。来週の空き状況を確認したい。」</p>
+              <p class="ai-summary-text">「定期点検の予約。来週の空き状況を確認したい。」</p>
             </div>
 
-            <div class="visual-action">
-              <span class="action-arrow">▸</span>
-              <span class="action-label">担当者へタスク自動登録</span>
-              <span class="action-target">→ 営業部・佐藤</span>
+            <div class="visual-task state-2">
+              <div class="task-head">
+                <span class="task-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="task-title">担当者へタスク自動登録</span>
+                <span class="task-status">完了</span>
+              </div>
+              <dl class="task-meta">
+                <div><dt>件名</dt><dd>定期点検 予約調整</dd></div>
+                <div><dt>担当</dt><dd>営業部・佐藤</dd></div>
+                <div><dt>期日</dt><dd>2026 / 05 / 14</dd></div>
+              </dl>
             </div>
           </div>
           <div class="visual-card visual-sub">
-            <span class="sub-tag">Local AI</span>
-            <p>音声データはオンプレで完結。<br>従量課金<em>0</em>。</p>
+            <span class="sub-tag">On-Premise</span>
+            <p>音声データはオンプレで完結。<br>低コストで AI 電話を実現。</p>
           </div>
         </div>
       </div>
@@ -719,6 +741,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

@@ -436,7 +436,7 @@ p { margin: 0; }
 .hero-visual {
   position: relative;
   height: 100%;
-  min-height: 520px;
+  min-height: 580px;
 }
 .visual-card {
   position: absolute;
@@ -481,6 +481,24 @@ p { margin: 0; }
   box-shadow: 0 0 0 4px rgba(255, 86, 86, .15);
   animation: livePulse 1.4s var(--ease-out) infinite;
 }
+.visual-pill-done {
+  background: rgba(0, 194, 209, .12);
+  color: #009ba6;
+}
+.visual-pill-done .done-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.visual-pill-done .done-dot svg { width: 9px; height: 9px; }
+
+/* state visibility */
+.visual-main:not(.is-done) .state-2 { display: none; }
+.visual-main.is-done .state-1 { display: none; }
 .visual-time {
   font-family: var(--font-en);
   font-size: 12px;
@@ -615,30 +633,133 @@ p { margin: 0; }
   color: var(--color-text);
 }
 
-.visual-action {
+/* State 1: live transcription */
+.visual-block-live {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 150px;
+}
+.tag-icon-rec {
+  background: #ff5656;
+  box-shadow: 0 0 0 3px rgba(255, 86, 86, .18);
+  animation: livePulse 1.4s var(--ease-out) infinite;
+}
+.rec-tag {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-en);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: #ff5656;
+  font-weight: 700;
+  text-transform: none;
+}
+.rec-tag i {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ff5656;
+  display: inline-block;
+  animation: livePulse 1.4s var(--ease-out) infinite;
+}
+.transcription {
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+  flex: 1;
+}
+.transcription .typed { white-space: pre-wrap; }
+.transcription .caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: var(--color-accent);
+  vertical-align: -2px;
+  margin-left: 2px;
+  animation: caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/* State 2: task auto-registration card */
+.visual-task {
+  margin-top: auto;
+  padding: 14px 16px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+.visual-task::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: var(--grad-accent);
+}
+.task-head {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 16px;
-  background: var(--color-primary);
-  border-radius: var(--radius);
-  color: #fff;
-  font-size: 12px;
-  margin-top: auto;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
-.action-arrow {
-  color: var(--color-cyan);
-  font-weight: 700;
-  font-family: var(--font-en);
+.task-check {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.action-label {
+.task-check svg { width: 12px; height: 12px; }
+.task-title {
   flex: 1;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
-.action-target {
-  font-size: 11px;
-  color: rgba(255, 255, 255, .7);
+.task-status {
+  font-family: var(--font-en);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 3px 8px;
+  background: rgba(0, 194, 209, .18);
+  color: var(--color-cyan);
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+.task-meta {
+  display: grid;
+  gap: 6px;
+}
+.task-meta > div {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 11.5px;
+}
+.task-meta dt {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, .5);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.task-meta dd {
+  color: rgba(255, 255, 255, .95);
+  font-weight: 500;
 }
 
 .visual-sub {

@@ -243,7 +243,76 @@
   });
 
   /* ==========================================================
-     7. Smooth-scroll offset for fixed header
+     7. Hero call cycle (live transcription → 通話終了)
+     ========================================================== */
+  const callCycle = document.querySelector('[data-call-cycle]');
+  if (callCycle) {
+    const typed = callCycle.querySelector('[data-typewriter]');
+    const fullText = typed ? (typed.dataset.typewriter || typed.textContent || '') : '';
+    if (typed) typed.textContent = '';
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let cycleTimer = null;
+    let typeTimer = null;
+    const clearTimers = () => {
+      if (cycleTimer) { clearTimeout(cycleTimer); cycleTimer = null; }
+      if (typeTimer) { clearTimeout(typeTimer); typeTimer = null; }
+    };
+
+    const playState1 = () => {
+      callCycle.classList.remove('is-done');
+      if (!typed) {
+        cycleTimer = setTimeout(playState2, 4000);
+        return;
+      }
+      typed.textContent = '';
+      if (reduceMotion) {
+        typed.textContent = fullText;
+        cycleTimer = setTimeout(playState2, 4000);
+        return;
+      }
+      let i = 0;
+      const speed = 70;
+      const tick = () => {
+        if (i >= fullText.length) {
+          cycleTimer = setTimeout(playState2, 2200);
+          return;
+        }
+        typed.textContent += fullText.charAt(i++);
+        typeTimer = setTimeout(tick, speed);
+      };
+      typeTimer = setTimeout(tick, 500);
+    };
+
+    const playState2 = () => {
+      callCycle.classList.add('is-done');
+      cycleTimer = setTimeout(playState1, 4500);
+    };
+
+    const startCycle = () => {
+      clearTimers();
+      playState1();
+    };
+
+    if ('IntersectionObserver' in window) {
+      const cycleIo = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!cycleTimer && !typeTimer) startCycle();
+          } else {
+            clearTimers();
+          }
+        });
+      }, { threshold: 0.2 });
+      cycleIo.observe(callCycle);
+    } else {
+      startCycle();
+    }
+  }
+
+  /* ==========================================================
+     8. Smooth-scroll offset for fixed header
      ========================================================== */
   const navLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
   navLinks.forEach((link) => {
