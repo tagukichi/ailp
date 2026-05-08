@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -1024,19 +1024,72 @@
           <span class="sec-eyebrow sec-eyebrow-light">GET STARTED</span>
           <h2 class="cta-title">まずはデモでxVoiceを体験してください。</h2>
           <p class="cta-lead">展示会で気になっていただいた方も、お気軽にどうぞ。<br>業務にあわせたトライアル設計を、無料でご提案します。</p>
-          <div class="cta-buttons">
-            <a href="#" class="btn btn-white btn-lg">
-              <span>無料トライアルを申し込む</span>
-              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href="#" class="btn btn-outline btn-lg">デモ体験を予約する</a>
-          </div>
+          <!-- Form skeleton (will be replaced by [contact-form-7] shortcode in WP) -->
+          <form class="cta-form" novalidate>
+            <div class="cta-form-grid">
+              <div class="cta-field">
+                <label for="cta-company">会社名 <span class="cta-req">必須</span></label>
+                <input type="text" id="cta-company" name="company" placeholder="株式会社xVoice" autocomplete="organization">
+              </div>
+              <div class="cta-field">
+                <label for="cta-name">お名前 <span class="cta-req">必須</span></label>
+                <input type="text" id="cta-name" name="name" placeholder="山田 太郎" autocomplete="name">
+              </div>
+              <div class="cta-field">
+                <label for="cta-email">メールアドレス <span class="cta-req">必須</span></label>
+                <input type="email" id="cta-email" name="email" placeholder="example@xvoice.jp" autocomplete="email">
+              </div>
+              <div class="cta-field">
+                <label for="cta-tel">電話番号</label>
+                <input type="tel" id="cta-tel" name="tel" placeholder="03-xxxx-xxxx" autocomplete="tel">
+              </div>
+              <div class="cta-field cta-field-full">
+                <label for="cta-purpose">ご相談内容</label>
+                <select id="cta-purpose" name="purpose">
+                  <option value="">選択してください</option>
+                  <option value="trial">無料トライアルの申し込み</option>
+                  <option value="demo">デモ体験を予約</option>
+                  <option value="estimate">お見積もり</option>
+                  <option value="other">その他のお問い合わせ</option>
+                </select>
+              </div>
+              <div class="cta-field cta-field-full">
+                <label for="cta-message">ご質問・ご要望（任意）</label>
+                <textarea id="cta-message" name="message" rows="4" placeholder="店舗数、想定通話数など、運用イメージを教えてください。"></textarea>
+              </div>
+              <div class="cta-field cta-field-full cta-field-consent">
+                <label class="cta-consent">
+                  <input type="checkbox" name="consent">
+                  <span><a href="#" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</span>
+                </label>
+              </div>
+            </div>
+            <div class="cta-form-submit">
+              <button type="submit" class="btn btn-white btn-lg">
+                <span>送信する</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- ============ Floating CTA ============ -->
+  <a href="#contact" class="floating-cta" data-floating-cta aria-label="お問い合わせはこちら">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 5a2 2 0 0 1 2-2h2.5l2 5-2.2 1.3a12 12 0 0 0 5.4 5.4L16 12.5l5 2V17a2 2 0 0 1-2 2A14 14 0 0 1 5 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="floating-cta-text">お問い合わせはこちら</span>
+    <svg class="floating-cta-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
 
   <!-- ============ FOOTER ============ -->
   <footer data-section="footer" class="site-footer">
@@ -1095,6 +1148,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>
