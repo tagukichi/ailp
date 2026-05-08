@@ -80,7 +80,7 @@
           </span>
           <h1 class="hero-title">
             電話対応を、<br>
-            <span class="hero-title-em">AIエージェントにまかせる。</span>
+            <span class="hero-title-em">AIエージェントに<br class="hero-title-br">まかせる。</span>
           </h1>
           <p class="hero-lead">
             録音・文字起こし・AI要約・社内共有・タスク管理はもちろん、<br>
@@ -114,50 +114,53 @@
         <div class="hero-visual" aria-hidden="true">
           <div class="visual-card visual-main">
             <div class="visual-card-head">
-              <span class="visual-dot"></span>
-              <span class="visual-label">xVoice Console — Live Calls</span>
+              <span class="visual-pill visual-pill-live">
+                <span class="live-dot"></span>着信中
+              </span>
+              <span class="visual-time">02:14 AM</span>
             </div>
-            <div class="visual-wave">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
+
+            <div class="visual-caller">
+              <span class="caller-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 5a2 2 0 0 1 2-2h2.5l2 5-2.2 1.3a12 12 0 0 0 5.4 5.4L16 12.5l5 2V17a2 2 0 0 1-2 2A14 14 0 0 1 5 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="caller-num">+81-3-xxxx-xxxx</span>
+              <span class="caller-tag">外線</span>
             </div>
-            <div class="visual-row">
-              <div class="visual-summary">
-                <div class="summary-avatar" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3l1.8 4.5L18 9l-4.2 1.5L12 15l-1.8-4.5L6 9l4.2-1.5L12 3z" fill="currentColor"/>
-                    <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/>
-                    <circle cx="5" cy="18" r="1" fill="currentColor"/>
-                  </svg>
+
+            <div class="visual-block">
+              <div class="block-tag">
+                <span class="tag-icon"></span>お客様情報 ｜ CRM 連携
+              </div>
+              <div class="visual-customer">
+                <div class="customer-avatar">山</div>
+                <div class="customer-body">
+                  <strong>山田 太郎 様</strong>
+                  <span class="customer-meta">既存顧客 ・ 過去対応 12 件</span>
+                  <span class="customer-meta">直近接触 2026 / 5 / 3</span>
                 </div>
-                <div class="summary-body">
-                  <div class="summary-meta">
-                    <span class="summary-tag">AI Summary</span>
-                    <span class="summary-confidence"><i></i>Local AI</span>
-                  </div>
-                  <p>既存顧客から点検予約のご依頼。担当者へタスク自動登録済み。</p>
-                </div>
               </div>
             </div>
-            <div class="visual-row visual-row-grid">
-              <div class="visual-mini">
-                <span class="mini-label">応答率</span>
-                <strong>100<small>%</small></strong>
+
+            <div class="visual-block visual-block-ai">
+              <div class="block-tag">
+                <span class="tag-icon tag-icon-ai"></span>AI 要約
+                <span class="confidence">Confidence 96%</span>
               </div>
-              <div class="visual-mini">
-                <span class="mini-label">平均応答</span>
-                <strong>1.2<small>s</small></strong>
-              </div>
-              <div class="visual-mini">
-                <span class="mini-label">本日件数</span>
-                <strong>248</strong>
-              </div>
+              <p class="ai-summary-text">「定期点検の予約をお願いしたい。来週の空き状況を確認したい。」</p>
+            </div>
+
+            <div class="visual-action">
+              <span class="action-arrow">▸</span>
+              <span class="action-label">担当者へタスク自動登録</span>
+              <span class="action-target">→ 営業部・佐藤</span>
             </div>
           </div>
           <div class="visual-card visual-sub">
             <span class="sub-tag">Local AI</span>
-            <p>従量課金<em>0</em>。すべてオンプレミスで完結。</p>
+            <p>音声データはオンプレで完結。<br>従量課金<em>0</em>。</p>
           </div>
         </div>
       </div>
