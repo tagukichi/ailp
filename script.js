@@ -243,71 +243,124 @@
   });
 
   /* ==========================================================
-     7. Hero call cycle (live transcription → 通話終了)
+     7. Hero call sequence (reveal + typewriter chain)
      ========================================================== */
   const callCycle = document.querySelector('[data-call-cycle]');
   if (callCycle) {
-    const typed = callCycle.querySelector('[data-typewriter]');
-    const fullText = typed ? (typed.dataset.typewriter || typed.textContent || '') : '';
-    if (typed) typed.textContent = '';
-
+    const steps = Array.from(callCycle.querySelectorAll('[data-step]'))
+      .sort((a, b) => Number(a.dataset.step) - Number(b.dataset.step));
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let cycleTimer = null;
-    let typeTimer = null;
-    const clearTimers = () => {
-      if (cycleTimer) { clearTimeout(cycleTimer); cycleTimer = null; }
-      if (typeTimer) { clearTimeout(typeTimer); typeTimer = null; }
+    const timers = new Set();
+    const wait = (ms) => new Promise((resolve) => {
+      const t = setTimeout(() => { timers.delete(t); resolve(); }, ms);
+      timers.add(t);
+    });
+    const cancel = () => { timers.forEach((t) => clearTimeout(t)); timers.clear(); };
+
+    const reveal = (el) => {
+      el.classList.remove('is-fade-in');
+      el.classList.remove('is-collapsed');
+      void el.offsetHeight; // restart animation
+      el.classList.add('is-fade-in');
     };
 
-    const playState1 = () => {
-      callCycle.classList.remove('is-done');
-      if (!typed) {
-        cycleTimer = setTimeout(playState2, 4000);
-        return;
-      }
-      typed.textContent = '';
+    const collapse = (el) => {
+      el.classList.remove('is-fade-in');
+      el.classList.add('is-collapsed');
+    };
+
+    const typewriter = async (el, speed = 65) => {
+      const fullText = el.dataset.typewriter || '';
+      el.classList.remove('is-typed');
+      el.textContent = '';
       if (reduceMotion) {
-        typed.textContent = fullText;
-        cycleTimer = setTimeout(playState2, 4000);
+        el.textContent = fullText;
+        el.classList.add('is-typed');
         return;
       }
-      let i = 0;
-      const speed = 70;
-      const tick = () => {
-        if (i >= fullText.length) {
-          cycleTimer = setTimeout(playState2, 2200);
-          return;
+      for (let i = 0; i < fullText.length; i++) {
+        el.textContent += fullText.charAt(i);
+        await wait(speed);
+      }
+      el.classList.add('is-typed');
+    };
+
+    const fadeOutAll = async () => {
+      const visible = steps.filter((s) => !s.classList.contains('is-collapsed'));
+      if (!visible.length) return;
+      visible.forEach((s) => {
+        s.classList.remove('is-fade-in');
+        s.classList.add('is-fade-out');
+      });
+      await wait(500);
+      visible.forEach((s) => s.classList.remove('is-fade-out'));
+    };
+
+    const resetSteps = () => {
+      steps.forEach((s) => {
+        collapse(s);
+        s.querySelectorAll('[data-typewriter]').forEach((t) => {
+          t.textContent = '';
+          t.classList.remove('is-typed');
+        });
+      });
+    };
+
+    let running = false;
+    const runCycle = async () => {
+      if (running) return;
+      running = true;
+      try {
+        while (running) {
+          await fadeOutAll();
+          resetSteps();
+          await wait(500);
+
+          // Step 1: live transcription
+          if (!running) break;
+          reveal(steps[0]);
+          await wait(650);
+          if (!running) break;
+          await typewriter(steps[0].querySelector('[data-typewriter]'), 65);
+          await wait(900);
+
+          // Step 2: AI summary
+          if (!running) break;
+          reveal(steps[1]);
+          await wait(650);
+          if (!running) break;
+          await typewriter(steps[1].querySelector('[data-typewriter]'), 55);
+          await wait(700);
+
+          // Step 3: task auto-registration
+          if (!running) break;
+          reveal(steps[2]);
+          await wait(5000);
         }
-        typed.textContent += fullText.charAt(i++);
-        typeTimer = setTimeout(tick, speed);
-      };
-      typeTimer = setTimeout(tick, 500);
+      } finally {
+        running = false;
+      }
     };
 
-    const playState2 = () => {
-      callCycle.classList.add('is-done');
-      cycleTimer = setTimeout(playState1, 4500);
-    };
-
-    const startCycle = () => {
-      clearTimers();
-      playState1();
+    const stopCycle = () => {
+      running = false;
+      cancel();
     };
 
     if ('IntersectionObserver' in window) {
       const cycleIo = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (!cycleTimer && !typeTimer) startCycle();
+            if (!running) runCycle();
           } else {
-            clearTimers();
+            stopCycle();
           }
         });
       }, { threshold: 0.2 });
       cycleIo.observe(callCycle);
     } else {
-      startCycle();
+      runCycle();
     }
   }
 
