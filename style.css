@@ -352,6 +352,21 @@ p { margin: 0; }
   font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--color-accent);
+  max-width: 100%;
+}
+.eyebrow-en { white-space: nowrap; }
+.eyebrow-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(44, 107, 255, .3);
+  flex-shrink: 0;
+}
+.eyebrow-jp {
+  font-family: var(--font-jp);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
 }
 .eyebrow-dot {
   width: 6px; height: 6px;
@@ -757,58 +772,6 @@ p { margin: 0; }
 .task-meta dd {
   color: rgba(255, 255, 255, .95);
   font-weight: 500;
-}
-
-/* On-Premise note (left column) */
-.hero-note {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  margin-top: 32px;
-  padding: 16px 18px;
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius);
-  box-shadow: 0 12px 30px -16px rgba(11, 27, 46, .35);
-  position: relative;
-  overflow: hidden;
-}
-.hero-note::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 1px;
-  background: var(--grad-accent);
-  opacity: .8;
-}
-.hero-note-icon {
-  width: 36px; height: 36px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: rgba(0, 194, 209, .18);
-  color: var(--color-cyan);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-note-icon svg { width: 20px; height: 20px; }
-.hero-note-body {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  line-height: 1.55;
-}
-.hero-note-tag {
-  font-family: var(--font-en);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  color: var(--color-cyan);
-  font-weight: 700;
-}
-.hero-note p {
-  font-size: 13px;
-  color: rgba(255, 255, 255, .92);
-  letter-spacing: 0.02em;
 }
 
 /* ============================================================
@@ -1827,7 +1790,8 @@ p { margin: 0; }
   }
   .visual-card { position: static; }
   .visual-main { inset: auto; }
-  .hero-note { margin-top: 24px; }
+  .eyebrow { flex-wrap: wrap; gap: 8px; padding: 10px 14px; }
+  .eyebrow-divider { display: none; }
 
   /* Trust */
   .trust { padding: 36px 0; }

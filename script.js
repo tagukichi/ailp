@@ -243,7 +243,7 @@
   });
 
   /* ==========================================================
-     7. Hero call sequence (reveal + typewriter chain)
+     7. Hero call sequence (reveal + typewriter chain — plays once)
      ========================================================== */
   const callCycle = document.querySelector('[data-call-cycle]');
   if (callCycle) {
@@ -251,28 +251,16 @@
       .sort((a, b) => Number(a.dataset.step) - Number(b.dataset.step));
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const timers = new Set();
-    const wait = (ms) => new Promise((resolve) => {
-      const t = setTimeout(() => { timers.delete(t); resolve(); }, ms);
-      timers.add(t);
-    });
-    const cancel = () => { timers.forEach((t) => clearTimeout(t)); timers.clear(); };
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const reveal = (el) => {
-      el.classList.remove('is-fade-in');
       el.classList.remove('is-collapsed');
-      void el.offsetHeight; // restart animation
+      void el.offsetHeight;
       el.classList.add('is-fade-in');
-    };
-
-    const collapse = (el) => {
-      el.classList.remove('is-fade-in');
-      el.classList.add('is-collapsed');
     };
 
     const typewriter = async (el, speed = 65) => {
       const fullText = el.dataset.typewriter || '';
-      el.classList.remove('is-typed');
       el.textContent = '';
       if (reduceMotion) {
         el.textContent = fullText;
@@ -286,81 +274,36 @@
       el.classList.add('is-typed');
     };
 
-    const fadeOutAll = async () => {
-      const visible = steps.filter((s) => !s.classList.contains('is-collapsed'));
-      if (!visible.length) return;
-      visible.forEach((s) => {
-        s.classList.remove('is-fade-in');
-        s.classList.add('is-fade-out');
-      });
-      await wait(500);
-      visible.forEach((s) => s.classList.remove('is-fade-out'));
-    };
+    let played = false;
+    const runOnce = async () => {
+      if (played) return;
+      played = true;
 
-    const resetSteps = () => {
-      steps.forEach((s) => {
-        collapse(s);
-        s.querySelectorAll('[data-typewriter]').forEach((t) => {
-          t.textContent = '';
-          t.classList.remove('is-typed');
-        });
-      });
-    };
+      reveal(steps[0]);
+      await wait(650);
+      await typewriter(steps[0].querySelector('[data-typewriter]'), 65);
+      await wait(900);
 
-    let running = false;
-    const runCycle = async () => {
-      if (running) return;
-      running = true;
-      try {
-        while (running) {
-          await fadeOutAll();
-          resetSteps();
-          await wait(500);
+      reveal(steps[1]);
+      await wait(650);
+      await typewriter(steps[1].querySelector('[data-typewriter]'), 55);
+      await wait(700);
 
-          // Step 1: live transcription
-          if (!running) break;
-          reveal(steps[0]);
-          await wait(650);
-          if (!running) break;
-          await typewriter(steps[0].querySelector('[data-typewriter]'), 65);
-          await wait(900);
-
-          // Step 2: AI summary
-          if (!running) break;
-          reveal(steps[1]);
-          await wait(650);
-          if (!running) break;
-          await typewriter(steps[1].querySelector('[data-typewriter]'), 55);
-          await wait(700);
-
-          // Step 3: task auto-registration
-          if (!running) break;
-          reveal(steps[2]);
-          await wait(5000);
-        }
-      } finally {
-        running = false;
-      }
-    };
-
-    const stopCycle = () => {
-      running = false;
-      cancel();
+      reveal(steps[2]);
     };
 
     if ('IntersectionObserver' in window) {
       const cycleIo = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (!running) runCycle();
-          } else {
-            stopCycle();
+          if (entry.isIntersecting && !played) {
+            runOnce();
+            cycleIo.unobserve(entry.target);
           }
         });
       }, { threshold: 0.2 });
       cycleIo.observe(callCycle);
     } else {
-      runCycle();
+      runOnce();
     }
   }
 
