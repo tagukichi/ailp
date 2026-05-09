@@ -1080,15 +1080,15 @@ p { margin: 0; }
   color: var(--color-accent);
 }
 .benefit-icon {
-  width: 64px;
-  height: 64px;
+  width: 88px;
+  height: 88px;
   margin: 0 auto;
   color: var(--color-accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.benefit-icon svg { width: 56px; height: 56px; }
+.benefit-icon svg { width: 80px; height: 80px; }
 .benefit-card h3 {
   font-size: 20px;
   font-weight: 800;
