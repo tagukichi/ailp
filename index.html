@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
@@ -53,6 +53,7 @@
           <a href="#contact" class="btn btn-primary">無料トライアル</a>
         </div>
       </div>
+      <div class="mobile-menu-blur" data-menu-blur aria-hidden="true"></div>
     </nav>
   </header>
 
@@ -426,10 +427,10 @@
                 <rect x="158" y="124" width="28" height="22" rx="3" fill="url(#r3-grad)"/>
 
                 <path d="M64 76 L100 96 L136 116 L172 132" stroke="#00c2d1" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <polygon points="166 128, 174 132, 169 138" fill="#00c2d1"/>
                 <circle cx="64" cy="76" r="4" fill="#00c2d1"/>
                 <circle cx="100" cy="96" r="4" fill="#00c2d1"/>
                 <circle cx="136" cy="116" r="4" fill="#00c2d1"/>
+                <circle cx="172" cy="132" r="4" fill="#00c2d1"/>
 
                 <g transform="translate(252 50)">
                   <circle r="24" fill="url(#r3-grad)"/>
@@ -1031,18 +1032,12 @@
     </section>
   </main>
 
-  <!-- ============ Floating CTA ============ -->
-  <a href="#contact" class="floating-cta" data-floating-cta aria-label="お問い合わせはこちら">
-    <span class="floating-cta-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M5 5a2 2 0 0 1 2-2h2.5l2 5-2.2 1.3a12 12 0 0 0 5.4 5.4L16 12.5l5 2V17a2 2 0 0 1-2 2A14 14 0 0 1 5 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span class="floating-cta-text">お問い合わせはこちら</span>
-    <svg class="floating-cta-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ============ Back to top button ============ -->
+  <button type="button" class="back-to-top" data-back-to-top aria-label="ページの先頭へ戻る">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-  </a>
+  </button>
 
   <!-- ============ FOOTER ============ -->
   <footer data-section="footer" class="site-footer">
@@ -1050,7 +1045,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="nav-logo nav-logo-light">
-            <img src="assets/xvoice_logo.png?v=1" alt="xVoice" class="logo-img">
+            <img src="assets/xvoice_logo.png?v=1" alt="xVoice" class="logo-img logo-img-light">
           </a>
           <p class="footer-tag">電話対応を、AIエージェントにまかせる。</p>
         </div>
@@ -1095,6 +1090,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>

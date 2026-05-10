@@ -12,6 +12,7 @@
   const mobileMenu = document.querySelector('.mobile-menu');
 
   if (hamburger && mobileMenu) {
+    const menuBlur = document.querySelector('[data-menu-blur]');
     let scrollY = 0;
     const lockScroll = () => {
       scrollY = window.scrollY;
@@ -32,6 +33,7 @@
     const closeMenu = () => {
       hamburger.classList.remove('active');
       mobileMenu.classList.remove('active');
+      if (menuBlur) menuBlur.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
       unlockScroll();
     };
@@ -39,6 +41,7 @@
     hamburger.addEventListener('click', function () {
       const isOpen = this.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      if (menuBlur) menuBlur.classList.toggle('active', isOpen);
       this.setAttribute('aria-expanded', isOpen);
       if (isOpen) lockScroll(); else unlockScroll();
     });
@@ -46,6 +49,10 @@
     mobileMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
+
+    if (menuBlur) {
+      menuBlur.addEventListener('click', closeMenu);
+    }
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
@@ -383,34 +390,20 @@
   });
 
   /* ==========================================================
-     7b. Floating CTA (sticky button, hides over CTA section)
+     7b. Back to top button (sticky, scrolls to top)
      ========================================================== */
-  const floatingCta = document.querySelector('[data-floating-cta]');
-  if (floatingCta) {
-    const ctaSection = document.querySelector('#contact');
-    let ctaInView = false;
-
+  const backToTop = document.querySelector('[data-back-to-top]');
+  if (backToTop) {
     const updateVisibility = () => {
-      const showByScroll = window.scrollY > window.innerHeight * 0.6;
-      if (showByScroll && !ctaInView) {
-        floatingCta.classList.add('is-visible');
-        floatingCta.classList.remove('is-near-cta');
-      } else if (ctaInView) {
-        floatingCta.classList.add('is-near-cta');
+      if (window.scrollY > window.innerHeight * 0.6) {
+        backToTop.classList.add('is-visible');
       } else {
-        floatingCta.classList.remove('is-visible', 'is-near-cta');
+        backToTop.classList.remove('is-visible');
       }
     };
-
-    if ('IntersectionObserver' in window && ctaSection) {
-      const ctaIo = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          ctaInView = entry.isIntersecting;
-          updateVisibility();
-        });
-      }, { threshold: 0.05 });
-      ctaIo.observe(ctaSection);
-    }
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     window.addEventListener('scroll', updateVisibility, { passive: true });
     updateVisibility();
   }
