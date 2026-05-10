@@ -156,11 +156,6 @@ p { margin: 0; }
   height: 36px;
   width: auto;
 }
-.logo-img-light {
-  /* Footer (dark navy bg): brighten dark text to white while preserving X gradient feel */
-  filter: brightness(0) invert(1);
-  opacity: .92;
-}
 
 .nav-links {
   display: flex;
