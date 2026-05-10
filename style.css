@@ -1734,17 +1734,8 @@ p { margin: 0; }
 .flow-steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 24px;
   position: relative;
-}
-.flow-steps::before {
-  content: "";
-  position: absolute;
-  top: 56px; left: 6%; right: 6%;
-  height: 1px;
-  background: repeating-linear-gradient(to right, var(--color-accent) 0, var(--color-accent) 6px, transparent 6px, transparent 12px);
-  opacity: .35;
-  z-index: 0;
 }
 .flow-card {
   position: relative;
@@ -1756,17 +1747,32 @@ p { margin: 0; }
   transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
 }
 .flow-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+/* Arrow between flow cards (PC: →, SP: ↓) */
+.flow-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid var(--color-accent);
+  transform: translateY(-50%);
+  z-index: 2;
+}
 .flow-tag {
   display: inline-block;
-  padding: 6px 12px;
-  background: var(--color-primary);
+  padding: 6px 14px;
+  background: var(--grad-accent);
   color: #fff;
   font-family: var(--font-en);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.16em;
   border-radius: var(--radius-pill);
   margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(44, 107, 255, .25);
 }
 .flow-card h3 {
   font-size: 16px;
@@ -2183,7 +2189,8 @@ p { margin: 0; }
   .support-grid { grid-template-columns: 1fr; }
 
   .flow-steps { grid-template-columns: repeat(3, 1fr); }
-  .flow-steps::before { display: none; }
+  /* Tablet 3-col: hide arrows (layout doesn't flow linearly) */
+  .flow-card:not(:last-child)::after { display: none; }
 
   .footer-top { grid-template-columns: 1fr; gap: 48px; }
 }
@@ -2266,8 +2273,21 @@ p { margin: 0; }
   .support-card { padding: 32px 24px; }
 
   /* Flow */
-  .flow-steps { grid-template-columns: 1fr; gap: 12px; }
+  .flow-steps { grid-template-columns: 1fr; gap: 22px; }
   .flow-card { padding: 24px 22px; }
+  /* SP 1-col: down arrows between cards */
+  .flow-card:not(:last-child)::after {
+    display: block;
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -16px;
+    border-top: 12px solid var(--color-accent);
+    border-bottom: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    transform: translateX(-50%);
+  }
 
   /* FAQ */
   .faq-q { padding: 20px 22px; font-size: 15.5px; }
