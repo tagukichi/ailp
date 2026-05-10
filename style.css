@@ -376,17 +376,18 @@ p { margin: 0; }
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 0;
-  background: transparent;
-  border: none;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(44, 107, 255, .08);
+  border: 1px solid rgba(44, 107, 255, .15);
+  border-radius: var(--radius-pill);
   font-family: var(--font-en);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--color-accent);
   max-width: 100%;
-  margin-bottom: -8px;
+  white-space: nowrap;
 }
 .eyebrow-en { white-space: nowrap; }
 .eyebrow-divider {
@@ -2225,8 +2226,8 @@ p { margin: 0; }
   }
   .visual-card { position: static; }
   .visual-main { inset: auto; }
-  .eyebrow { flex-wrap: wrap; gap: 6px; padding: 0; }
-  .eyebrow-jp { font-size: 12px; }
+  .eyebrow { flex-wrap: nowrap; gap: 6px; padding: 5px 10px; font-size: 11px; }
+  .eyebrow-jp { font-size: 11px; }
   .eyebrow-divider { display: none; }
   .benefits .sec-title { font-size: 25px; }
 
