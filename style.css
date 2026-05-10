@@ -2308,6 +2308,11 @@ p { margin: 0; }
   .reason-hero-image { aspect-ratio: 16 / 10; max-width: 360px; margin: 0 auto; }
   .reason-grid { grid-template-columns: 1fr; gap: 16px; }
   .reason-card { padding: 24px; }
+  /* Card 02 has a wider custom SVG (448:210); match aspect-ratio on SP so right edge isn't cut visually */
+  .reason-card:nth-child(2) .reason-image {
+    aspect-ratio: 448 / 210;
+    padding: 0;
+  }
 
   /* Benefits */
   .benefit-grid { grid-template-columns: 1fr; gap: 16px; }
