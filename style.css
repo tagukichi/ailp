@@ -2210,7 +2210,7 @@ p { margin: 0; }
   .hero { padding: calc(var(--header-h) + 16px) 0 80px; }
   .hero-inner { grid-template-columns: 1fr; gap: 56px; }
   .hero-content { max-width: none; }
-  .hero-title { font-size: clamp(30px, 8.5vw, 40px); }
+  .hero-title { font-size: clamp(32px, 9vw, 42px); }
   .hero-lead { font-size: 15px; }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { width: 100%; }
