@@ -13,22 +13,13 @@
 
   if (hamburger && mobileMenu) {
     const menuBlur = document.querySelector('[data-menu-blur]');
-    let scrollY = 0;
     const lockScroll = () => {
-      scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = -scrollY + 'px';
-      document.body.style.left = '0';
-      document.body.style.right = '0';
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
     };
     const unlockScroll = () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
-      window.scrollTo(0, scrollY);
     };
     const closeMenu = () => {
       hamburger.classList.remove('active');
