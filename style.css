@@ -148,20 +148,18 @@ p { margin: 0; }
 .nav-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.04em;
-  color: var(--color-primary);
+  flex-shrink: 0;
+  text-decoration: none;
 }
-.nav-logo .logo-mark {
-  display: inline-flex;
-  width: 28px; height: 28px;
-  color: var(--color-accent);
+.logo-img {
+  display: block;
+  height: 36px;
+  width: auto;
 }
-.nav-logo .logo-text {
-  font-family: var(--font-en);
-  letter-spacing: 0.06em;
+.logo-img-light {
+  /* Footer (dark navy bg): brighten dark text to white while preserving X gradient feel */
+  filter: brightness(0) invert(1);
+  opacity: .92;
 }
 
 .nav-links {
@@ -1080,15 +1078,15 @@ p { margin: 0; }
   color: var(--color-accent);
 }
 .benefit-icon {
-  width: 64px;
-  height: 64px;
+  width: 88px;
+  height: 88px;
   margin: 0 auto;
   color: var(--color-accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.benefit-icon svg { width: 56px; height: 56px; }
+.benefit-icon svg { width: 80px; height: 80px; }
 .benefit-card h3 {
   font-size: 20px;
   font-weight: 800;
@@ -2062,7 +2060,6 @@ p { margin: 0; }
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .nav-logo-light { color: #fff; }
-.nav-logo-light .logo-mark { color: var(--color-cyan); }
 .footer-tag {
   margin-top: 18px;
   font-size: 14px;
@@ -2178,6 +2175,7 @@ p { margin: 0; }
 @media (max-width: 750px) {
   .container { padding: 0 5%; }
   .nav { padding: 0 5%; gap: 16px; }
+  .logo-img { height: 30px; }
 
   /* Header */
   .nav-links, .nav-cta { display: none; }
