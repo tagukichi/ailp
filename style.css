@@ -915,8 +915,17 @@ p { margin: 0; }
   line-height: 1.9;
 }
 
+.issue-summary {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 16.5px;
+  line-height: 2;
+  color: var(--color-text-sub);
+  letter-spacing: 0.02em;
+}
+
 .issue-bridge {
-  margin-top: 56px;
+  margin-top: 32px;
   padding: 40px 48px;
   background: var(--color-primary);
   border-radius: var(--radius-lg);
@@ -2252,7 +2261,8 @@ p { margin: 0; }
   .check-mark { width: 36px; height: 36px; border-radius: 10px; }
   .check-mark svg { width: 20px; height: 20px; }
   .check-body h3 { font-size: 16px; }
-  .issue-bridge { padding: 28px 22px; margin-top: 40px; }
+  .issue-summary { margin-top: 32px; font-size: 14.5px; line-height: 1.85; }
+  .issue-bridge { padding: 28px 22px; margin-top: 24px; }
 
   /* Reasons */
   .reason-hero { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; text-align: left; }
