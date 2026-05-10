@@ -1668,6 +1668,45 @@ p { margin: 0; }
 }
 
 /* ============================================================
+   MID CV
+   ============================================================ */
+.mid-cv {
+  padding: 96px 0;
+  background: linear-gradient(135deg, rgba(44, 107, 255, .06) 0%, rgba(0, 194, 209, .06) 100%);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+.mid-cv-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.mid-cv-title {
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.mid-cv-lead {
+  font-size: 16.5px;
+  color: var(--color-text-sub);
+  line-height: 1.85;
+}
+.mid-cv-btn { margin-top: 8px; min-width: 280px; }
+
+@media (max-width: 750px) {
+  .mid-cv { padding: 64px 0; }
+  .mid-cv-title { font-size: 22px; }
+  .mid-cv-lead { font-size: 14.5px; }
+  .mid-cv-btn { width: 100%; min-width: 0; }
+}
+
+/* ============================================================
    SUPPORT (dark)
    ============================================================ */
 .support {
