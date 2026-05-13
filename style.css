@@ -979,9 +979,25 @@ p { margin: 0; }
    REASONS
    ============================================================ */
 .reasons {
+  position: relative;
   padding: 140px 0;
   background: var(--color-bg);
+  overflow: hidden;
 }
+.reasons::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(11, 27, 46, .045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 27, 46, .045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+.reasons .container { position: relative; z-index: 1; }
 
 .reason-hero {
   display: grid;
