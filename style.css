@@ -951,14 +951,14 @@ p { margin: 0; }
 
 .issue-bridge {
   padding: 40px 48px;
-  background: var(--color-primary);
+  background: transparent;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
 }
 .issue-bridge p {
   font-size: clamp(15px, 1.7vw, 17px);
-  color: rgba(255, 255, 255, .9);
+  color: var(--color-text);
   line-height: 2;
   letter-spacing: 0.04em;
   text-align: center;
@@ -967,7 +967,6 @@ p { margin: 0; }
   display: inline-block;
   font-size: clamp(20px, 2.6vw, 28px);
   font-weight: 800;
-  color: #fff;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
   background: var(--grad-accent);
