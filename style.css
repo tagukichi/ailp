@@ -1737,12 +1737,10 @@ p { margin: 0; }
 }
 .features-cat + .features-cat { margin-top: 56px; }
 .features-all-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
 }
-.features-all-cols .features-cat + .features-cat { margin-top: 0; }
 .features-cat-title {
   display: flex;
   align-items: baseline;
@@ -1767,12 +1765,8 @@ p { margin: 0; }
 }
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-}
-/* xVoice category (first column in 2-col layout) has 14 items — split internally into 2 sub-cols */
-.features-all-cols .features-cat:first-child .features-grid {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 .features-grid li {
   display: grid;
@@ -2052,16 +2046,16 @@ p { margin: 0; }
 }
 
 @media (max-width: 1024px) {
-  .features-all-cols { gap: 32px; }
+  .features-all-cols { gap: 40px; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 750px) {
   .features-all { margin-top: 64px; padding-top: 56px; }
   .features-all-title { font-size: 22px; }
-  .features-all-cols { grid-template-columns: 1fr; gap: 40px; }
+  .features-all-cols { gap: 40px; }
   .features-cat-title { font-size: 16px; gap: 10px; margin-bottom: 14px; padding-bottom: 10px; }
   .features-cat-num { font-size: 22px; }
-  .features-grid { gap: 8px; }
-  .features-all-cols .features-cat:first-child .features-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; gap: 8px; }
   .features-grid li { padding: 11px 12px; grid-template-columns: 32px 1fr; gap: 10px; }
   .features-grid-icon { width: 32px; height: 32px; border-radius: 8px; }
   .features-grid-icon svg { width: 16px; height: 16px; }
