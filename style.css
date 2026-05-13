@@ -882,8 +882,11 @@ p { margin: 0; }
    ISSUES (checkbox list)
    ============================================================ */
 .issues {
-  padding: 120px 0;
-  background: var(--color-bg-soft);
+  position: relative;
+  padding: 120px 0 220px;
+  background: #081a30;
+  color: rgba(255, 255, 255, .85);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 120px), 50% 100%, 0 calc(100% - 120px));
 }
 
 .issue-list {
@@ -897,14 +900,14 @@ p { margin: 0; }
   gap: 20px;
   padding: 28px 28px 28px 24px;
   background: #fff;
-  border: 1px solid var(--color-border-soft);
+  border: 1px solid transparent;
   border-radius: var(--radius-lg);
   transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s var(--ease-out);
 }
 .issue-check:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-accent-soft);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .35);
+  border-color: var(--color-accent);
 }
 .check-mark {
   width: 44px; height: 44px;
@@ -935,12 +938,18 @@ p { margin: 0; }
   text-align: center;
   font-size: 16.5px;
   line-height: 2;
-  color: var(--color-text-sub);
+  color: rgba(255, 255, 255, .82);
   letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+/* Wrapper for issue-bridge that sits on light bg below the dark ISSUES section */
+.issue-bridge-wrap {
+  padding: 48px 0 64px;
+  background: var(--color-bg);
 }
 
 .issue-bridge {
-  margin-top: 32px;
   padding: 40px 48px;
   background: var(--color-primary);
   border-radius: var(--radius-lg);
@@ -1702,6 +1711,98 @@ p { margin: 0; }
 }
 
 /* ============================================================
+   FEATURES - all feature list (sub-section)
+   ============================================================ */
+.features-all {
+  margin-top: 100px;
+  padding-top: 80px;
+  border-top: 1px solid var(--color-border-soft);
+}
+.features-all-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.features-all-title {
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.features-all-sub {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--color-text-sub);
+}
+.features-cat + .features-cat { margin-top: 56px; }
+.features-cat-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+.features-cat-num {
+  font-family: var(--font-en);
+  font-size: 26px;
+  font-weight: 800;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.04em;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.features-grid li {
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius);
+  transition: transform .3s var(--ease-out), border-color .3s var(--ease-out), box-shadow .3s var(--ease-out);
+}
+.features-grid li:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-soft);
+  box-shadow: var(--shadow-sm);
+}
+.features-grid h5 {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.features-grid p {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--color-text-sub);
+  letter-spacing: 0.01em;
+}
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 750px) {
+  .features-all { margin-top: 64px; padding-top: 56px; }
+  .features-all-title { font-size: 22px; }
+  .features-cat + .features-cat { margin-top: 40px; }
+  .features-cat-title { font-size: 16px; gap: 10px; margin-bottom: 18px; }
+  .features-cat-num { font-size: 22px; }
+  .features-grid { grid-template-columns: 1fr; gap: 10px; }
+  .features-grid li { padding: 14px 16px; }
+  .features-grid h5 { font-size: 14px; margin-bottom: 4px; }
+  .features-grid p { font-size: 12.5px; }
+}
+
+/* ============================================================
    MID CV
    ============================================================ */
 .mid-cv {
@@ -2312,7 +2413,9 @@ p { margin: 0; }
   .hamburger { display: flex; }
 
   /* Section spacing */
-  .issues, .reasons, .benefits, .features, .support, .flow, .faq { padding: 80px 0; }
+  .issues { padding: 80px 0 140px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 50% 100%, 0 calc(100% - 70px)); }
+  .reasons, .benefits, .features, .support, .flow, .faq { padding: 80px 0; }
+  .issue-bridge-wrap { padding: 32px 0 48px; }
   .cta { padding: 80px 0; }
   .sec-head { margin-bottom: 40px; }
   .sec-head-center { margin-bottom: 48px; }
