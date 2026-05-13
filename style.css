@@ -2565,11 +2565,15 @@ p { margin: 0; }
 .footer-col a:hover { color: var(--color-cyan); }
 
 /* Footer company info — intentionally subdued */
+.footer-company p,
 .footer-company li {
   font-size: 14px;
   color: rgba(255, 255, 255, .6);
   line-height: 1.75;
+  margin-bottom: 4px;
 }
+.footer-company p:last-child,
+.footer-company li:last-child { margin-bottom: 0; }
 .footer-company-note {
   font-size: 11.5px !important;
   color: rgba(255, 255, 255, .35) !important;
