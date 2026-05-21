@@ -96,6 +96,9 @@ function xvoice_asset_uri($path) {
  * @return string Escaped URL.
  */
 function xvoice_home_anchor($anchor) {
+    if (is_front_page()) {
+        return esc_attr($anchor);
+    }
     return esc_url(home_url('/') . $anchor);
 }
 
