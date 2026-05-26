@@ -359,7 +359,7 @@ p { margin: 0; }
    ============================================================ */
 .hero {
   position: relative;
-  padding: calc(var(--header-h) + 32px) 0 96px;
+  padding: calc(var(--header-h) + 32px) 0 56px;
   overflow: hidden;
   background: var(--color-bg);
 }
@@ -397,7 +397,7 @@ p { margin: 0; }
 .hero-inner {
   position: relative;
   display: block;
-  min-height: 540px;
+  min-height: 420px;
 }
 
 .hero-content {
@@ -469,7 +469,8 @@ p { margin: 0; }
   margin-top: 28px;
   font-size: 17px;
   line-height: 2;
-  color: var(--color-text-sub);
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .hero-cta {
@@ -484,7 +485,7 @@ p { margin: 0; }
   z-index: 2;
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 12px;
 }
 
 .hero-meta {
