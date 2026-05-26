@@ -471,6 +471,7 @@ p { margin: 0; }
   line-height: 2;
   color: var(--color-text);
   font-weight: 500;
+  max-width: 460px;
 }
 
 .hero-cta {
@@ -531,8 +532,8 @@ p { margin: 0; }
   position: absolute;
   top: 0;
   right: -2%;
-  width: 60%;
-  max-width: 780px;
+  width: 50%;
+  max-width: 540px;
   z-index: 1;
   pointer-events: none;
 }
@@ -2811,9 +2812,10 @@ p { margin: 0; }
 @media (max-width: 1201px) {
   .container { padding-left: 3%; padding-right: 3%; }
   .nav { padding: 0 3%; }
-  .hero-content { max-width: 560px; }
-  .hero-title { font-size: clamp(26px, 3.6vw, 42px); }
-  .hero-visual { width: 56%; right: -2%; max-width: 640px; top: 0; }
+  .hero-content { max-width: 500px; }
+  .hero-title { font-size: clamp(26px, 3.2vw, 36px); }
+  .hero-lead { max-width: 380px; }
+  .hero-visual { width: 48%; right: -2%; max-width: 480px; top: 0; }
   .hero-meta { gap: 32px; }
   .feature-row { gap: 56px; }
 
