@@ -403,7 +403,7 @@ p { margin: 0; }
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 560px;
+  max-width: 640px;
 }
 
 .eyebrow {
@@ -450,9 +450,9 @@ p { margin: 0; }
 
 .hero-title {
   margin-top: 14px;
-  font-size: clamp(26px, 2.9vw, 40px);
+  font-size: clamp(28px, 3.2vw, 46px);
   font-weight: 800;
-  line-height: 1.45;
+  line-height: 1.4;
   letter-spacing: 0.02em;
   color: var(--color-primary);
   word-break: keep-all;
@@ -484,7 +484,7 @@ p { margin: 0; }
   z-index: 2;
   display: flex;
   justify-content: center;
-  margin-top: 56px;
+  margin-top: 24px;
 }
 
 .hero-meta {
@@ -539,20 +539,14 @@ p { margin: 0; }
 .hero-illustration {
   position: relative;
   width: 100%;
-  animation: heroFloat 6s ease-in-out infinite;
 }
 .hero-illustration img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg, 20px);
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-illustration { animation: none; }
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 10%, #000 22%, #000 100%);
+          mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 10%, #000 22%, #000 100%);
 }
 
 .visual-card {
@@ -2816,9 +2810,9 @@ p { margin: 0; }
 @media (max-width: 1201px) {
   .container { padding-left: 3%; padding-right: 3%; }
   .nav { padding: 0 3%; }
-  .hero-content { max-width: 480px; }
-  .hero-title { font-size: clamp(26px, 3.2vw, 38px); }
-  .hero-visual { width: 55%; right: -2%; max-width: 600px; top: 0; }
+  .hero-content { max-width: 560px; }
+  .hero-title { font-size: clamp(26px, 3.6vw, 42px); }
+  .hero-visual { width: 56%; right: -2%; max-width: 640px; top: 0; }
   .hero-meta { gap: 32px; }
   .feature-row { gap: 56px; }
 
