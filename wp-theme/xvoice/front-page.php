@@ -65,7 +65,7 @@ get_header(); ?>
       <div class="container">
         <p class="trust-label">
           <span class="trust-label-sub">全国規模での運用実績</span>
-          <span class="trust-label-main">トヨタ販売店をはじめ、<em>1,500</em>店舗・<em>2,000</em>台のローカルAIを運用</span>
+          <span class="trust-label-main">全国のトヨタ販売店をはじめ<em>2,000</em>名のAIスタッフを派遣中</span>
         </p>
       </div>
     </section>
@@ -75,7 +75,7 @@ get_header(); ?>
       <div class="container">
         <header class="sec-head sec-head-center sec-head-light">
           <span class="sec-eyebrow">ISSUES</span>
-          <h2 class="sec-title">電話対応で、<br class="sp-only">こんなお悩みありませんか？</h2>
+          <h2 class="sec-title">人手不足・AI活用で<br class="sp-only">こんな悩みありませんか？</h2>
         </header>
 
         <ul class="issue-list">
@@ -84,8 +84,8 @@ get_header(); ?>
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <div class="check-body">
-              <h3>コア業務が、電話で止まる</h3>
-              <p>業務の途中で電話が鳴り、本来注力すべき仕事が進まない。営業・迷惑電話の対応にもスタッフの時間が奪われている。</p>
+              <h3>人手不足でも、顧客対応と売上機会は落とせない</h3>
+              <p>人手不足や労働時間の制約により、業務削減や効率化は必要になっている。しかし、問い合わせ対応や顧客フォローまで手が回らなくなると、売上機会の損失や顧客満足度の低下につながってしまう。</p>
             </div>
           </li>
           <li class="issue-check">
@@ -93,8 +93,8 @@ get_header(); ?>
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <div class="check-body">
-              <h3>機会損失が見えないまま発生している</h3>
-              <p>夜間・休日や繁忙時間帯は担当者が出られず、商談・受注のタイミングを逃している。働き方改革で対応時間も削られていく。</p>
+              <h3>社内ノウハウが属人化し、共有・活用できていない</h3>
+              <p>ベテラン社員や一部の担当者に業務ノウハウが集中し、マニュアルやFAQとして十分に整理されていない。そのため、問い合わせ対応や判断基準にバラつきが出やすく、新人教育や引き継ぎにも時間がかかっている。</p>
             </div>
           </li>
           <li class="issue-check">
@@ -102,8 +102,8 @@ get_header(); ?>
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <div class="check-body">
-              <h3>対応の品質と顧客満足度にバラツキがある</h3>
-              <p>通話内容がデータとして残らず、対応漏れ・伝達ミスが発生。クレームやカスハラにつながり、現場の人材が疲弊する。</p>
+              <h3>自社の業務にAIが本当に使えるのか分からない</h3>
+              <p>AIは便利そうだが、自社の業務内容や現場のルールに合うのか不安がある。一般的なAIツールではなく、自社の実務に合わせて使える形にしたい。</p>
             </div>
           </li>
           <li class="issue-check">
