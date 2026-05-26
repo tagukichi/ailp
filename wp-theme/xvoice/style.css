@@ -532,8 +532,8 @@ p { margin: 0; }
   position: absolute;
   top: 0;
   right: -2%;
-  width: 50%;
-  max-width: 540px;
+  width: 56%;
+  max-width: 640px;
   z-index: 1;
   pointer-events: none;
 }
@@ -2815,7 +2815,7 @@ p { margin: 0; }
   .hero-content { max-width: 500px; }
   .hero-title { font-size: clamp(26px, 3.2vw, 36px); }
   .hero-lead { max-width: 380px; }
-  .hero-visual { width: 48%; right: -2%; max-width: 480px; top: 0; }
+  .hero-visual { width: 50%; right: -2%; max-width: 540px; top: 0; }
   .hero-meta { gap: 32px; }
   .feature-row { gap: 56px; }
 
