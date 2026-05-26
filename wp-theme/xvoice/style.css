@@ -453,6 +453,8 @@ p { margin: 0; }
   line-height: 1.35;
   letter-spacing: 0.02em;
   color: var(--color-primary);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .hero-title-em {
   background: var(--grad-accent);
@@ -517,7 +519,32 @@ p { margin: 0; }
 .hero-visual {
   position: relative;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Hero illustration (image replacement of the call-cycle card) */
+.hero-illustration {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+.hero-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg, 20px);
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-illustration { animation: none; }
+}
+
 .visual-card {
   position: relative;
   background: #fff;
