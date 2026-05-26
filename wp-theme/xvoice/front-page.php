@@ -53,7 +53,7 @@ get_header(); ?>
 
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-illustration">
-            <img src="<?php echo esc_url(xvoice_asset_uri('images/hero-illustration.png')); ?>" alt="" loading="eager" decoding="async">
+            <img src="<?php echo esc_url(xvoice_asset_uri('images/hero-illustration.webp')); ?>" alt="" width="1240" height="698" loading="eager" decoding="async" fetchpriority="high">
           </div>
         </div>
       </div>
