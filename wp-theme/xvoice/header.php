@@ -40,9 +40,7 @@ if (!defined('ABSPATH')) {
             <ul class="nav-links">
                 <li><a href="<?php echo xvoice_home_anchor('#issues'); ?>"><?php _e('課題', 'xvoice'); ?></a></li>
                 <li><a href="<?php echo xvoice_home_anchor('#reasons'); ?>"><?php _e('選ばれる理由', 'xvoice'); ?></a></li>
-                <li><a href="<?php echo xvoice_home_anchor('#benefits'); ?>"><?php _e('できること', 'xvoice'); ?></a></li>
                 <li><a href="<?php echo xvoice_home_anchor('#features'); ?>"><?php _e('主な機能', 'xvoice'); ?></a></li>
-                <li><a href="<?php echo xvoice_home_anchor('#support'); ?>"><?php _e('サポート', 'xvoice'); ?></a></li>
                 <li><a href="<?php echo xvoice_home_anchor('#flow'); ?>"><?php _e('トライアルの流れ', 'xvoice'); ?></a></li>
             </ul>
         <?php endif; ?>
@@ -76,9 +74,7 @@ if (!defined('ABSPATH')) {
         <ul>
             <li><a href="<?php echo xvoice_home_anchor('#issues'); ?>"><?php _e('課題', 'xvoice'); ?></a></li>
             <li><a href="<?php echo xvoice_home_anchor('#reasons'); ?>"><?php _e('選ばれる理由', 'xvoice'); ?></a></li>
-            <li><a href="<?php echo xvoice_home_anchor('#benefits'); ?>"><?php _e('できること', 'xvoice'); ?></a></li>
             <li><a href="<?php echo xvoice_home_anchor('#features'); ?>"><?php _e('主な機能', 'xvoice'); ?></a></li>
-            <li><a href="<?php echo xvoice_home_anchor('#support'); ?>"><?php _e('サポート', 'xvoice'); ?></a></li>
             <li><a href="<?php echo xvoice_home_anchor('#flow'); ?>"><?php _e('トライアルの流れ', 'xvoice'); ?></a></li>
         </ul>
     <?php endif; ?>
