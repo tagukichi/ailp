@@ -54,6 +54,7 @@ if (!defined('ABSPATH')) {
                             <li><a href="<?php echo xvoice_home_anchor('#contact'); ?>"><?php _e('無料トライアル', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo xvoice_home_anchor('#contact'); ?>"><?php _e('デモ体験', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo xvoice_home_anchor('#faq'); ?>"><?php _e('よくあるご質問', 'xvoice'); ?></a></li>
+                            <li><a href="<?php echo esc_url(home_url('/isms/')); ?>"><?php _e('ISMS認証取得', 'xvoice'); ?></a></li>
                         </ul>
                     <?php endif; ?>
                 </div>
