@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" role="img" aria-label="ISMS-AC ISR016">
+  <rect width="200" height="200" fill="#1d4499"/>
+  <g fill="#fff">
+    <circle cx="100" cy="50" r="20"/>
+    <ellipse cx="100" cy="115" rx="80" ry="32" fill="none" stroke="#fff" stroke-width="10" transform="rotate(-12 100 115)"/>
+    <path d="M85 78 L115 78 L120 175 L100 200 L80 175 Z"/>
+  </g>
+  <text x="100" y="228" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1d4499" letter-spacing="-1">iSMS-AC</text>
+  <text x="100" y="252" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#1d4499" letter-spacing="1">ISMS ISR016</text>
+</svg>
