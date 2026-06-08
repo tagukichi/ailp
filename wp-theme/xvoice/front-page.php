@@ -148,7 +148,11 @@ get_header(); ?>
 
         <ol class="reason-grid">
           <li class="reason-card">
-            <div class="reason-image" aria-hidden="true">
+            <?php $reason_img_01 = xvoice_acf_image('reason_image_01'); ?>
+            <div class="reason-image"<?php echo $reason_img_01 ? '' : ' aria-hidden="true"'; ?>>
+              <?php if ($reason_img_01) : ?>
+                <?php xvoice_render_acf_image($reason_img_01, 'reason-illust'); ?>
+              <?php else : ?>
               <svg class="reason-illust" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                 <defs>
                   <linearGradient id="r1-grad" x1="0" y1="0" x2="1" y2="1">
@@ -192,13 +196,18 @@ get_header(); ?>
                   </g>
                 </g>
               </svg>
+              <?php endif; ?>
             </div>
             <span class="reason-num">01</span>
             <h3>御社専用にAIスタッフを育成</h3>
             <p>xVoiceは、あらかじめ決まった機能をそのまま使うだけの一般的なSaaSではありません。<br>会社ごとの業務内容、現場ごとの対応ルール、社内ナレッジを整理しながら、御社専用のAIスタッフとして育成します。<br>導入して終わりではなく、現場で本当に使える状態になるまで伴走することで、AIスタッフが日々の業務の中でしっかり働ける仕組みをつくります。</p>
           </li>
           <li class="reason-card">
-            <div class="reason-image" aria-hidden="true">
+            <?php $reason_img_02 = xvoice_acf_image('reason_image_02'); ?>
+            <div class="reason-image"<?php echo $reason_img_02 ? '' : ' aria-hidden="true"'; ?>>
+              <?php if ($reason_img_02) : ?>
+                <?php xvoice_render_acf_image($reason_img_02, 'reason-illust'); ?>
+              <?php else : ?>
               <svg class="reason-illust" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" data-replaced="r2">
                 <defs>
                   <linearGradient id="r2-grad" x1="0" y1="0" x2="1" y2="1">
@@ -248,13 +257,18 @@ get_header(); ?>
                   <rect x="7" y="96" width="40" height="12" rx="3" fill="#fff" stroke="#00c2d1" stroke-width="1"/>
                 </g>
               </svg>
+              <?php endif; ?>
             </div>
             <span class="reason-num">02</span>
             <h3>トヨタ自動車出身スタッフの業務改善ノウハウで、AI前提の業務再編</h3>
             <p>xVoiceは、現在の業務を単純にAIへ置き換えるだけではありません。<br>トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、現場の業務フローや課題を整理したうえで、AIスタッフがいる前提の新しい業務の進め方を設計します。<br>人がやるべき仕事とAIに任せる仕事を切り分けることで、現場の負担を減らしながら、対応品質と業務効率の向上を目指します。</p>
           </li>
           <li class="reason-card">
-            <div class="reason-image" aria-hidden="true">
+            <?php $reason_img_03 = xvoice_acf_image('reason_image_03'); ?>
+            <div class="reason-image"<?php echo $reason_img_03 ? '' : ' aria-hidden="true"'; ?>>
+              <?php if ($reason_img_03) : ?>
+                <?php xvoice_render_acf_image($reason_img_03, 'reason-illust'); ?>
+              <?php else : ?>
               <svg class="reason-illust" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                 <defs>
                   <linearGradient id="r3-grad" x1="0" y1="0" x2="1" y2="1">
@@ -301,13 +315,18 @@ get_header(); ?>
                   <line x1="-16" y1="-2" x2="14" y2="28" stroke="#ff5656" stroke-width="2.4" stroke-linecap="round"/>
                 </g>
               </svg>
+              <?php endif; ?>
             </div>
             <span class="reason-num">03</span>
             <h3>「ローカルＡＩ」を活用した、安全・安心の運用</h3>
             <p>お客様情報や機密情報をオンライン上のＡＩに学習させやり、情報漏洩リスクを回避するために、xVoiceは、御社の社内で動くローカルAIを活用してます。<br>情報管理・コンプライアンスを遵守しながら、安心してＡＩを業務に取り込むことができます。</p>
           </li>
           <li class="reason-card">
-            <div class="reason-image" aria-hidden="true">
+            <?php $reason_img_04 = xvoice_acf_image('reason_image_04'); ?>
+            <div class="reason-image"<?php echo $reason_img_04 ? '' : ' aria-hidden="true"'; ?>>
+              <?php if ($reason_img_04) : ?>
+                <?php xvoice_render_acf_image($reason_img_04, 'reason-illust'); ?>
+              <?php else : ?>
               <svg class="reason-illust" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                 <defs>
                   <linearGradient id="r4-grad" x1="0" y1="0" x2="0" y2="1">
@@ -346,9 +365,10 @@ get_header(); ?>
                 <circle cx="270" cy="120" r="4" fill="#00c2d1"/>
                 <text x="200" y="113" fill="#0a8c97" font-family="-apple-system,Hiragino Sans,sans-serif" font-size="10.5" font-weight="800">ローカルAI</text>
               </svg>
+              <?php endif; ?>
             </div>
             <span class="reason-num">04</span>
-            <h3>「ローカルAI」で、<br>使うほど膨らむＡＩコストを抑制</h3>
+            <h3>「ローカルAI」で、使うほど膨らむＡＩコストを抑制</h3>
             <p>フルオンライン型のAIサービスでは、利用量が増えるほどAPI利用料や従量課金が膨らみやすくなります。<br>xVoiceは、ローカルAIを活用することで、頻繁に発生する問い合わせ対応・情報整理・社内確認などの処理コストを抑えやすい設計を目指します。AIスタッフを日常業務でしっかり使い倒したい企業にとって、コストを気にしすぎず活用範囲を広げられることは大きなメリットです。</p>
           </li>
         </ol>
@@ -622,6 +642,10 @@ get_header(); ?>
               </ul>
             </div>
             <div class="feature-row-visual">
+              <?php $feature_img_04 = xvoice_acf_image('feature_image_04'); ?>
+              <?php if ($feature_img_04) : ?>
+                <?php xvoice_render_acf_image($feature_img_04, 'feature-visual-img'); ?>
+              <?php else : ?>
               <div class="feat-card feat-dashboard">
                 <div class="feat-card-head">
                   <span class="feat-pill feat-pill-cyan">Dashboard</span>
@@ -686,6 +710,7 @@ get_header(); ?>
                   <span class="dash-spark-label">受電数 7日間トレンド</span>
                 </div>
               </div>
+              <?php endif; ?>
             </div>
           </article>
         </div>

@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!defined('XVOICE_VERSION')) {
-    define('XVOICE_VERSION', '1.1.0');
+    define('XVOICE_VERSION', '1.2.0');
 }
 
 /**
@@ -118,6 +118,61 @@ function xvoice_register_acf_fields() {
                 'library'       => 'all',
                 'mime_types'    => 'webp,png,jpg,jpeg',
             ],
+            [
+                'key'           => 'field_xvoice_reason_image_01',
+                'label'         => __('選ばれる理由 01 画像（御社専用にAIスタッフを育成）', 'xvoice'),
+                'name'          => 'reason_image_01',
+                'type'          => 'image',
+                'instructions'  => __('未設定の場合は標準のイラスト（SVG）が表示されます。推奨比率: 16:9（PNG / jpg / webp）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'png,jpg,jpeg,webp',
+            ],
+            [
+                'key'           => 'field_xvoice_reason_image_02',
+                'label'         => __('選ばれる理由 02 画像（トヨタ自動車出身スタッフ／AI前提の業務再編）', 'xvoice'),
+                'name'          => 'reason_image_02',
+                'type'          => 'image',
+                'instructions'  => __('未設定の場合は標準のイラスト（SVG）が表示されます。推奨比率: 16:9（PNG / jpg / webp）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'png,jpg,jpeg,webp',
+            ],
+            [
+                'key'           => 'field_xvoice_reason_image_03',
+                'label'         => __('選ばれる理由 03 画像（「ローカルＡＩ」を活用した、安全・安心の運用）', 'xvoice'),
+                'name'          => 'reason_image_03',
+                'type'          => 'image',
+                'instructions'  => __('未設定の場合は標準のイラスト（SVG）が表示されます。推奨比率: 16:9（PNG / jpg / webp）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'png,jpg,jpeg,webp',
+            ],
+            [
+                'key'           => 'field_xvoice_reason_image_04',
+                'label'         => __('選ばれる理由 04 画像（「ローカルAI」で、使うほど膨らむＡＩコストを抑制）', 'xvoice'),
+                'name'          => 'reason_image_04',
+                'type'          => 'image',
+                'instructions'  => __('未設定の場合は標準のイラスト（SVG）が表示されます。推奨比率: 16:9（PNG / jpg / webp）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'png,jpg,jpeg,webp',
+            ],
+            [
+                'key'           => 'field_xvoice_feature_image_04',
+                'label'         => __('主な機能 FEATURE04 画像（FAXの自動OCR・データ連携）', 'xvoice'),
+                'name'          => 'feature_image_04',
+                'type'          => 'image',
+                'instructions'  => __('未設定の場合は標準のダッシュボード図が表示されます。推奨比率: 4:3 前後（PNG / jpg / webp）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'png,jpg,jpeg,webp',
+            ],
         ],
         'location'    => [
             [
@@ -169,6 +224,57 @@ function xvoice_hero_image() {
     }
 
     return $fallback;
+}
+
+/**
+ * Helper: resolve a front-page ACF image field.
+ *
+ * Returns the uploaded image (url/width/height/alt) when the field is set,
+ * otherwise null so the template can fall back to the default illustration.
+ *
+ * @param string $field_name ACF field name.
+ * @return array{url:string,width:int,height:int,alt:string}|null
+ */
+function xvoice_acf_image($field_name) {
+    if (!function_exists('get_field')) {
+        return null;
+    }
+
+    $front_id = (int) get_option('page_on_front');
+    $image    = $front_id ? get_field($field_name, $front_id) : get_field($field_name);
+
+    if (is_array($image) && !empty($image['url'])) {
+        return [
+            'url'    => $image['url'],
+            'width'  => !empty($image['width']) ? (int) $image['width'] : 0,
+            'height' => !empty($image['height']) ? (int) $image['height'] : 0,
+            'alt'    => isset($image['alt']) ? (string) $image['alt'] : '',
+        ];
+    }
+
+    return null;
+}
+
+/**
+ * Helper: print an ACF image as an <img> tag (escaped).
+ *
+ * @param array  $image  Image array from xvoice_acf_image().
+ * @param string $class  CSS class for the <img>.
+ * @return void
+ */
+function xvoice_render_acf_image($image, $class) {
+    if (empty($image['url'])) {
+        return;
+    }
+    printf(
+        '<img class="%s" src="%s" alt="%s"%s decoding="async" loading="lazy">',
+        esc_attr($class),
+        esc_url($image['url']),
+        esc_attr($image['alt']),
+        $image['width'] && $image['height']
+            ? sprintf(' width="%d" height="%d"', (int) $image['width'], (int) $image['height'])
+            : ''
+    );
 }
 
 /**
