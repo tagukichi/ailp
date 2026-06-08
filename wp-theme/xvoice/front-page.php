@@ -23,7 +23,7 @@ get_header(); ?>
         <div class="hero-content">
           <h1 class="hero-title">
             人手不足の現場に、<br>
-            <span class="hero-title-em">御社専用のAIスタッフを<br class="hero-title-br">「育てて」「派遣」します。</span>
+            <span class="hero-title-em">御社専用のAIスタッフを<br class="hero-title-br">「育てて」「派遣」しています。</span>
           </h1>
           <p class="hero-lead">
             トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、企業ごとの業務内容・対応ルール・社内ナレッジを学習したAIスタッフが、電話対応・顧客対応・社内問い合わせ・情報整理・業務報告・タスク管理まで幅広く支援します。
@@ -144,72 +144,7 @@ get_header(); ?>
         <header class="sec-head sec-head-center">
           <span class="sec-eyebrow">WHY xVOICE</span>
           <h2 class="sec-title">xVoiceが選ばれる理由</h2>
-          <p class="sec-lead">「導入して終わり」ではなく、業務フローに深く入り込み、現場で結果を出すためのAIです。</p>
         </header>
-
-        <article class="reason-hero">
-          <div class="reason-hero-text">
-            <h3>AIを、実務で使い倒したい。</h3>
-            <p>これは理由ではなく、私たちのスタンスです。<br>
-            xVoiceは「AIを導入する」ことをゴールにしません。電話対応という日々の業務フローに徹底的に組み込み、現場で結果を出すまで伴走します。</p>
-          </div>
-          <div class="reason-hero-image" aria-hidden="true">
-            <svg class="reason-illust" viewBox="0 0 280 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="rh-grad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#2c6bff"/>
-                  <stop offset="1" stop-color="#00c2d1"/>
-                </linearGradient>
-              </defs>
-              <ellipse cx="140" cy="105" rx="120" ry="86" fill="rgba(44,107,255,.05)"/>
-
-              <g transform="translate(40 60)">
-                <circle cx="0" cy="0" r="10" fill="#0a2540"/>
-                <path d="M-15 24a15 15 0 0 1 30 0z" fill="#0a2540"/>
-              </g>
-              <g transform="translate(40 105)">
-                <circle cx="0" cy="0" r="10" fill="#1a3a66"/>
-                <path d="M-15 24a15 15 0 0 1 30 0z" fill="#1a3a66"/>
-              </g>
-              <g transform="translate(40 150)">
-                <circle cx="0" cy="0" r="10" fill="#0a2540"/>
-                <path d="M-15 24a15 15 0 0 1 30 0z" fill="#0a2540"/>
-              </g>
-
-              <g transform="translate(218 38)">
-                <rect width="32" height="44" rx="5" fill="#fff" stroke="#2c6bff" stroke-width="1.8"/>
-                <rect x="4" y="6" width="24" height="28" rx="1" fill="#e7eeff"/>
-                <circle cx="16" cy="39" r="1.8" fill="#2c6bff"/>
-              </g>
-              <g transform="translate(218 89)">
-                <rect width="44" height="32" rx="4" fill="#fff" stroke="#2c6bff" stroke-width="1.8"/>
-                <line x1="8" y1="10" x2="36" y2="10" stroke="#2c6bff" stroke-width="2" stroke-linecap="round"/>
-                <line x1="8" y1="18" x2="36" y2="18" stroke="#5a6b82" stroke-width="2" stroke-linecap="round"/>
-                <line x1="8" y1="26" x2="26" y2="26" stroke="#5a6b82" stroke-width="2" stroke-linecap="round"/>
-              </g>
-              <g transform="translate(218 132)">
-                <rect width="44" height="36" rx="4" fill="#fff" stroke="#2c6bff" stroke-width="1.8"/>
-                <rect width="44" height="10" rx="4" fill="#2c6bff"/>
-                <line x1="14" y1="-3" x2="14" y2="6" stroke="#2c6bff" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="30" y1="-3" x2="30" y2="6" stroke="#2c6bff" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="22" cy="22" r="3" fill="#00c2d1"/>
-              </g>
-
-              <g stroke="#2c6bff" stroke-width="1.5" stroke-dasharray="3 3" opacity=".5" fill="none">
-                <line x1="55" y1="60" x2="140" y2="105"/>
-                <line x1="55" y1="105" x2="140" y2="105"/>
-                <line x1="55" y1="150" x2="140" y2="105"/>
-                <line x1="140" y1="105" x2="218" y2="60"/>
-                <line x1="140" y1="105" x2="218" y2="105"/>
-                <line x1="140" y1="105" x2="218" y2="150"/>
-              </g>
-
-              <circle cx="140" cy="105" r="36" fill="url(#rh-grad)"/>
-              <circle cx="140" cy="105" r="36" fill="none" stroke="#fff" stroke-width="3" opacity=".85"/>
-              <text x="140" y="113" text-anchor="middle" fill="#fff" font-family="-apple-system,Segoe UI,sans-serif" font-size="20" font-weight="800" letter-spacing="0.04em">AI</text>
-            </svg>
-          </div>
-        </article>
 
         <ol class="reason-grid">
           <li class="reason-card">
@@ -259,8 +194,8 @@ get_header(); ?>
               </svg>
             </div>
             <span class="reason-num">01</span>
-            <h3>御社専用に<br>AIスタッフを育成</h3>
-            <p>xVoiceは、あらかじめ決まった機能をそのまま使うだけの一般的なSaaSではありません。会社ごとの業務内容、現場ごとの対応ルール、社内ナレッジを整理しながら、御社専用のAIスタッフとして育成します。導入して終わりではなく、現場で本当に使える状態になるまで伴走することで、AIスタッフが日々の業務の中でしっかり働ける仕組みをつくります。</p>
+            <h3>御社専用にAIスタッフを育成</h3>
+            <p>xVoiceは、あらかじめ決まった機能をそのまま使うだけの一般的なSaaSではありません。<br>会社ごとの業務内容、現場ごとの対応ルール、社内ナレッジを整理しながら、御社専用のAIスタッフとして育成します。<br>導入して終わりではなく、現場で本当に使える状態になるまで伴走することで、AIスタッフが日々の業務の中でしっかり働ける仕組みをつくります。</p>
           </li>
           <li class="reason-card">
             <div class="reason-image" aria-hidden="true">
@@ -315,8 +250,8 @@ get_header(); ?>
               </svg>
             </div>
             <span class="reason-num">02</span>
-            <h3>トヨタ自動車出身スタッフの業務改善ノウハウで、<br>AI前提の業務再編</h3>
-            <p>xVoiceは、現在の業務を単純にAIへ置き換えるだけではありません。トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、現場の業務フローや課題を整理したうえで、AIスタッフがいる前提の新しい業務の進め方を設計します。人がやるべき仕事とAIに任せる仕事を切り分けることで、現場の負担を減らしながら、対応品質と業務効率の向上を目指します。</p>
+            <h3>トヨタ自動車出身スタッフの業務改善ノウハウで、AI前提の業務再編</h3>
+            <p>xVoiceは、現在の業務を単純にAIへ置き換えるだけではありません。<br>トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、現場の業務フローや課題を整理したうえで、AIスタッフがいる前提の新しい業務の進め方を設計します。<br>人がやるべき仕事とAIに任せる仕事を切り分けることで、現場の負担を減らしながら、対応品質と業務効率の向上を目指します。</p>
           </li>
           <li class="reason-card">
             <div class="reason-image" aria-hidden="true">
@@ -368,8 +303,8 @@ get_header(); ?>
               </svg>
             </div>
             <span class="reason-num">03</span>
-            <h3>ローカルAIで、<br>安心して使える情報管理</h3>
-            <p>AI活用では、顧客情報・社内資料・業務ノウハウをどこまで扱わせるかが大きな課題になります。xVoiceは、ローカルAIの活用により、外部サービスへ依存しすぎない安全性の高い運用を目指します。機密情報や社内ナレッジを扱う業務でも、情報管理やコンプライアンスに配慮しながら、安心してAIを業務に組み込むことができます。</p>
+            <h3>「ローカルＡＩ」を活用した、安全・安心の運用</h3>
+            <p>お客様情報や機密情報をオンライン上のＡＩに学習させやり、情報漏洩リスクを回避するために、xVoiceは、御社の社内で動くローカルAIを活用してます。<br>情報管理・コンプライアンスを遵守しながら、安心してＡＩを業務に取り込むことができます。</p>
           </li>
           <li class="reason-card">
             <div class="reason-image" aria-hidden="true">
@@ -379,39 +314,42 @@ get_header(); ?>
                     <stop offset="0" stop-color="#2c6bff"/>
                     <stop offset="1" stop-color="#00c2d1"/>
                   </linearGradient>
+                  <linearGradient id="r4-cloud-area" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="rgba(255,86,86,.28)"/>
+                    <stop offset="1" stop-color="rgba(255,86,86,0)"/>
+                  </linearGradient>
+                  <linearGradient id="r4-local-area" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="rgba(0,194,209,.22)"/>
+                    <stop offset="1" stop-color="rgba(0,194,209,0)"/>
+                  </linearGradient>
                 </defs>
-                <ellipse cx="160" cy="100" rx="130" ry="68" fill="rgba(44,107,255,.05)"/>
+                <ellipse cx="160" cy="100" rx="130" ry="70" fill="rgba(44,107,255,.05)"/>
 
-                <!-- Baseline -->
-                <line x1="38" y1="146" x2="218" y2="146" stroke="#5a6b82" stroke-width="1" stroke-dasharray="2 4" opacity=".5"/>
+                <!-- Axes -->
+                <line x1="44" y1="26" x2="44" y2="150" stroke="#5a6b82" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+                <line x1="44" y1="150" x2="296" y2="150" stroke="#5a6b82" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+                <polygon points="44,20 40,30 48,30" fill="#5a6b82" opacity=".55"/>
+                <polygon points="302,150 292,146 292,154" fill="#5a6b82" opacity=".55"/>
+                <text x="30" y="34" text-anchor="middle" fill="#5a6b82" font-family="-apple-system,Hiragino Sans,sans-serif" font-size="9" font-weight="800">コスト</text>
+                <text x="290" y="167" text-anchor="end" fill="#5a6b82" font-family="-apple-system,Hiragino Sans,sans-serif" font-size="9" font-weight="700">利用量</text>
 
-                <!-- Descending bars -->
-                <rect x="46" y="62" width="30" height="84" rx="3" fill="rgba(255,86,86,.18)"/>
-                <rect x="86" y="82" width="30" height="64" rx="3" fill="rgba(255,86,86,.3)"/>
-                <rect x="126" y="102" width="30" height="44" rx="3" fill="url(#r4-grad)"/>
-                <rect x="166" y="120" width="30" height="26" rx="3" fill="url(#r4-grad)"/>
+                <!-- Cloud AI: steep increase (red) -->
+                <path d="M54 138 L108 122 L162 92 L216 56 L270 32 L270 150 L54 150 Z" fill="url(#r4-cloud-area)"/>
+                <path d="M54 138 L108 122 L162 92 L216 56 L270 32" stroke="#ff5656" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="270" cy="32" r="4" fill="#ff5656"/>
+                <polygon points="270,32 262,40 278,40" fill="#ff5656"/>
+                <text x="222" y="30" fill="#e23b3b" font-family="-apple-system,Hiragino Sans,sans-serif" font-size="10.5" font-weight="800">クラウドAI</text>
 
-                <!-- Cost reduction trend (downward) -->
-                <path d="M60 76 L100 96 L140 116 L180 132" stroke="#ff5656" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
-                <circle cx="60" cy="76" r="3.6" fill="#ff5656"/>
-                <circle cx="100" cy="96" r="3.6" fill="#ff5656"/>
-                <circle cx="140" cy="116" r="3.6" fill="#ff5656"/>
-                <circle cx="180" cy="132" r="3.6" fill="#ff5656"/>
-
-                <!-- ¥ badge -->
-                <g transform="translate(252 60)">
-                  <circle r="26" fill="url(#r4-grad)"/>
-                  <text x="0" y="10" text-anchor="middle" fill="#fff" font-family="-apple-system,Segoe UI,sans-serif" font-size="28" font-weight="800">¥</text>
-                </g>
-                <!-- Downward arrow -->
-                <g transform="translate(252 108)">
-                  <path d="M-7 -2 L-7 14 L-14 14 L0 30 L14 14 L7 14 L7 -2 Z" fill="url(#r4-grad)"/>
-                </g>
+                <!-- Local AI: slight increase (gradient) -->
+                <path d="M54 142 L108 138 L162 132 L216 126 L270 120 L270 150 L54 150 Z" fill="url(#r4-local-area)"/>
+                <path d="M54 142 L108 138 L162 132 L216 126 L270 120" stroke="url(#r4-grad)" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="270" cy="120" r="4" fill="#00c2d1"/>
+                <text x="200" y="113" fill="#0a8c97" font-family="-apple-system,Hiragino Sans,sans-serif" font-size="10.5" font-weight="800">ローカルAI</text>
               </svg>
             </div>
             <span class="reason-num">04</span>
-            <h3>ローカルAIで、<br>使うほど膨らむコストを抑制</h3>
-            <p>フルオンライン型のAIサービスでは、利用量が増えるほどAPI利用料や従量課金が膨らみやすくなります。xVoiceは、ローカルAIを活用することで、頻繁に発生する問い合わせ対応・情報整理・社内確認などの処理コストを抑えやすい設計を目指します。AIスタッフを日常業務でしっかり使い倒したい企業にとって、コストを気にしすぎず活用範囲を広げられることは大きなメリットです。</p>
+            <h3>「ローカルAI」で、<br>使うほど膨らむＡＩコストを抑制</h3>
+            <p>フルオンライン型のAIサービスでは、利用量が増えるほどAPI利用料や従量課金が膨らみやすくなります。<br>xVoiceは、ローカルAIを活用することで、頻繁に発生する問い合わせ対応・情報整理・社内確認などの処理コストを抑えやすい設計を目指します。AIスタッフを日常業務でしっかり使い倒したい企業にとって、コストを気にしすぎず活用範囲を広げられることは大きなメリットです。</p>
           </li>
         </ol>
       </div>
@@ -675,8 +613,8 @@ get_header(); ?>
           <article class="feature-row feature-row-reverse">
             <div class="feature-row-text">
               <span class="feature-num">FEATURE 04</span>
-              <h3>FAXのOCR・データダッシュボード</h3>
-              <p>FAXもAIが自動でOCR・データ化し、通話データとあわせてダッシュボードで可視化。問い合わせ傾向・機会損失・社内ナレッジまで、データ起点で意思決定できます。</p>
+              <h3>FAXの自動OCR・データ連携</h3>
+              <p>FAXによる注文などをAIが自動でOCR・データ化。<br>さらに、データ化した内容を御社のデータベースなどと連携し、業務を効率化します。</p>
               <ul class="feature-bullets">
                 <li>FAXの自動OCR・データ化</li>
                 <li>問い合わせ傾向・機会損失の可視化</li>

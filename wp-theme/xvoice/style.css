@@ -1114,12 +1114,12 @@ p { margin: 0; }
 .reason-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 14px;
   counter-reset: none;
 }
 .reason-card {
   position: relative;
-  padding: 32px;
+  padding: 24px 22px;
   background: #fff;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-lg);
