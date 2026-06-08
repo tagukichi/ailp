@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!defined('XVOICE_VERSION')) {
-    define('XVOICE_VERSION', '1.0.0');
+    define('XVOICE_VERSION', '1.1.0');
 }
 
 /**
@@ -87,6 +87,88 @@ add_action('wp_head', 'xvoice_preconnect_fonts', 1);
  */
 function xvoice_asset_uri($path) {
     return get_template_directory_uri() . '/assets/' . ltrim($path, '/');
+}
+
+/**
+ * Register ACF field groups.
+ *
+ * Fields are registered in code so the theme works as soon as the
+ * Advanced Custom Fields plugin is active — no manual field setup needed.
+ * If ACF is not installed, this is skipped and the theme falls back to the
+ * bundled default images.
+ */
+function xvoice_register_acf_fields() {
+    if (!function_exists('acf_add_local_field_group')) {
+        return;
+    }
+
+    acf_add_local_field_group([
+        'key'         => 'group_xvoice_front_page',
+        'title'       => __('TOPページ設定', 'xvoice'),
+        'description' => __('TOPページ（フロントページ）で差し替えできる画像などの設定です。', 'xvoice'),
+        'fields'      => [
+            [
+                'key'           => 'field_xvoice_hero_image',
+                'label'         => __('ヒーロー画像（メインビジュアル）', 'xvoice'),
+                'name'          => 'hero_image',
+                'type'          => 'image',
+                'instructions'  => __('TOPページ上部のメインビジュアル画像を差し替えできます。未設定の場合はテーマ標準の画像が表示されます。推奨サイズ: 1240×698px（webp / png / jpg）。', 'xvoice'),
+                'return_format' => 'array',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'mime_types'    => 'webp,png,jpg,jpeg',
+            ],
+        ],
+        'location'    => [
+            [
+                [
+                    'param'    => 'page_type',
+                    'operator' => '==',
+                    'value'    => 'front_page',
+                ],
+            ],
+        ],
+        'menu_order'  => 0,
+        'position'    => 'normal',
+        'style'       => 'default',
+        'active'      => true,
+    ]);
+}
+add_action('acf/init', 'xvoice_register_acf_fields');
+
+/**
+ * Helper: resolve the front-page hero image.
+ *
+ * Returns the image set via ACF (TOPページ設定 → ヒーロー画像) when available,
+ * otherwise falls back to the bundled theme asset.
+ *
+ * @return array{url:string,width:int,height:int,alt:string}
+ */
+function xvoice_hero_image() {
+    $fallback = [
+        'url'    => xvoice_asset_uri('images/hero-illustration.webp'),
+        'width'  => 1240,
+        'height' => 698,
+        'alt'    => '',
+    ];
+
+    if (!function_exists('get_field')) {
+        return $fallback;
+    }
+
+    $front_id = (int) get_option('page_on_front');
+    $image    = $front_id ? get_field('hero_image', $front_id) : get_field('hero_image');
+
+    if (is_array($image) && !empty($image['url'])) {
+        return [
+            'url'    => $image['url'],
+            'width'  => !empty($image['width']) ? (int) $image['width'] : $fallback['width'],
+            'height' => !empty($image['height']) ? (int) $image['height'] : $fallback['height'],
+            'alt'    => isset($image['alt']) ? (string) $image['alt'] : '',
+        ];
+    }
+
+    return $fallback;
 }
 
 /**

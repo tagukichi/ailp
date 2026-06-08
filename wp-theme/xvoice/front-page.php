@@ -32,7 +32,8 @@ get_header(); ?>
 
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-illustration">
-            <img src="<?php echo esc_url(xvoice_asset_uri('images/hero-illustration.webp')); ?>" alt="" width="1240" height="698" loading="eager" decoding="async" fetchpriority="high">
+            <?php $hero_image = xvoice_hero_image(); ?>
+            <img src="<?php echo esc_url($hero_image['url']); ?>" alt="<?php echo esc_attr($hero_image['alt']); ?>" width="<?php echo esc_attr($hero_image['width']); ?>" height="<?php echo esc_attr($hero_image['height']); ?>" loading="eager" decoding="async" fetchpriority="high">
           </div>
         </div>
       </div>

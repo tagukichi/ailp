@@ -6,7 +6,9 @@
 
 - WordPress 6.0 以上
 - PHP 7.4 以上
-- 推奨プラグイン: [Contact Form 7](https://ja.wordpress.org/plugins/contact-form-7/)（お問い合わせフォーム用）
+- 推奨プラグイン:
+  - [Contact Form 7](https://ja.wordpress.org/plugins/contact-form-7/)（お問い合わせフォーム用）
+  - [Advanced Custom Fields](https://ja.wordpress.org/plugins/advanced-custom-fields/)（TOPページのヒーロー画像を管理画面から差し替える用）
 
 ## インストール手順
 
@@ -44,6 +46,16 @@
 
 設定しない場合は、デザイン確認用の静的フォーム雛形（送信不可）が表示されます。
 
+### 4. TOPページのヒーロー画像差し替え（ACF）
+
+1. [Advanced Custom Fields](https://ja.wordpress.org/plugins/advanced-custom-fields/) プラグインをインストール・有効化
+2. 設定 → 表示設定 で「ホームページ」に指定した固定ページを編集
+3. 編集画面下部の **「TOPページ設定」→「ヒーロー画像（メインビジュアル）」** から画像をアップロード/選択して更新
+   - 推奨サイズ: 1240×698px（webp / png / jpg）
+   - 未設定の場合はテーマ標準画像（`assets/images/hero-illustration.webp`）が表示されます
+
+> フィールドはテーマ側（`functions.php`）でコード登録しているため、ACF 管理画面での手動フィールド作成は不要です。ACF 未導入でもテーマは標準画像で問題なく動作します。
+
 ## ファイル構成
 
 ```
@@ -61,6 +73,7 @@ wp-theme/xvoice/
 │   ├── js/main.js                     # フロントエンド JS（ハンバーガー / typewriter / sticky CTA など）
 │   └── images/
 │       ├── xvoice_logo.png            # サイトロゴ
+│       ├── hero-illustration.webp     # TOPヒーロー標準画像（ACFで差し替え可）
 │       └── features/                  # 機能詳細ページ用画像 20 枚
 └── README.md
 ```
