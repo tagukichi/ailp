@@ -72,7 +72,7 @@ if (!defined('ABSPATH')) {
             <small>&copy; <?php echo esc_html(date_i18n('Y')); ?> KAIZEN Technology, Inc. All rights reserved.</small>
             <ul class="footer-legal">
                 <li><a href="<?php echo esc_url(home_url('/isms/')); ?>"><?php _e('ISMS認証取得', 'xvoice'); ?></a></li>
-                <li><a href="#"><?php _e('プライバシーポリシー', 'xvoice'); ?></a></li>
+                <li><a href="<?php echo esc_url(home_url('/privacypolicy/')); ?>"><?php _e('プライバシーポリシー', 'xvoice'); ?></a></li>
                 <li><a href="#"><?php _e('利用規約', 'xvoice'); ?></a></li>
                 <li><a href="#"><?php _e('特定商取引法', 'xvoice'); ?></a></li>
             </ul>
