@@ -441,17 +441,17 @@ p { margin: 0; }
 }
 .hero-title-sub {
   display: block;
-  font-size: clamp(13px, 1.05vw, 15px);
+  font-size: clamp(14px, 1.15vw, 16.5px);
   font-weight: 700;
   line-height: 1.7;
   letter-spacing: 0.04em;
-  color: var(--color-text-sub);
+  color: var(--color-primary);
   margin-bottom: 14px;
 }
 .hero-title-em {
   display: block;
-  font-size: clamp(26px, 2.6vw, 36px);
-  line-height: 1.55;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.5;
   letter-spacing: 0.02em;
   background: var(--grad-accent);
   -webkit-background-clip: text;
@@ -461,11 +461,11 @@ p { margin: 0; }
 
 .hero-lead {
   margin-top: 28px;
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.95;
   color: var(--color-text);
   font-weight: 500;
-  max-width: 560px;
+  max-width: 580px;
 }
 
 .hero-cta {
@@ -2708,9 +2708,9 @@ p { margin: 0; }
   .container { padding-left: 3%; padding-right: 3%; }
   .nav { padding: 0 3%; }
   .hero-content { max-width: 520px; }
-  .hero-title-sub { font-size: 12.5px; }
-  .hero-title-em { font-size: clamp(22px, 2.4vw, 28px); }
-  .hero-lead { max-width: 480px; font-size: 14px; }
+  .hero-title-sub { font-size: 13.5px; }
+  .hero-title-em { font-size: clamp(24px, 2.7vw, 32px); }
+  .hero-lead { max-width: 500px; font-size: 15px; }
   .hero-visual { width: 44%; right: -2%; max-width: 460px; top: 0; }
   .hero-meta { gap: 32px; }
   .feature-row { gap: 56px; }
@@ -2756,9 +2756,9 @@ p { margin: 0; }
   .hero { padding: calc(var(--header-h) + 16px) 0 80px; }
   .hero-inner { display: flex; flex-direction: column; gap: 32px; min-height: 0; }
   .hero-content { max-width: none; order: 2; }
-  .hero-title-sub { font-size: 12.5px; margin-bottom: 10px; }
-  .hero-title-em { font-size: clamp(22px, 5.6vw, 28px); }
-  .hero-lead { font-size: 14.5px; max-width: none; }
+  .hero-title-sub { font-size: 13px; margin-bottom: 10px; }
+  .hero-title-em { font-size: clamp(24px, 6.4vw, 32px); }
+  .hero-lead { font-size: 15px; max-width: none; }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { width: 100%; }
   .hero-cta-below { margin-top: 32px; padding: 0 5%; }
