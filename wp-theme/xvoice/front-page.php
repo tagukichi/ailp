@@ -22,11 +22,11 @@ get_header(); ?>
       <div class="container hero-inner">
         <div class="hero-content">
           <h1 class="hero-title">
-            人手不足の現場に、<br>
-            <span class="hero-title-em">御社専用のAIスタッフを<br class="hero-title-br">「育てて」「派遣」しています。</span>
+            「電話」「面談」「コールセンター」<br class="hero-title-br">「会議」「打合せ」「ＦＡＸ」など<br>
+            <span class="hero-title-em">お客様・社員間のコミュニケーションを<br class="hero-title-br">ＡＩがフルサポートします</span>
           </h1>
           <p class="hero-lead">
-            トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、企業ごとの業務内容・対応ルール・社内ナレッジを学習したAIスタッフが、電話対応・顧客対応・社内問い合わせ・情報整理・業務報告・タスク管理まで幅広く支援します。
+            トヨタ自動車出身スタッフによる業務改善ノウハウを活かし、<br class="pc-only">現場・実務で活用できるＡＩサービスを提供できます。
           </p>
         </div>
 

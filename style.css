@@ -2618,6 +2618,7 @@ p { margin: 0; }
   margin-bottom: 18px;
   letter-spacing: 0.08em;
 }
+.footer-col-h4-sub { margin-top: 24px; }
 .footer-col ul {
   display: flex;
   flex-direction: column;
