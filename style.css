@@ -440,13 +440,36 @@ p { margin: 0; }
   overflow-wrap: normal;
 }
 .hero-title-sub {
-  display: block;
-  font-size: clamp(14px, 1.15vw, 16.5px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 8px;
+  font-size: clamp(13px, 1.05vw, 15px);
   font-weight: 700;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--color-primary);
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+}
+.hero-kw {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: linear-gradient(120deg, rgba(44, 107, 255, .12) 0%, rgba(0, 194, 209, .14) 100%);
+  border: 1px solid rgba(44, 107, 255, .22);
+  color: var(--color-accent);
+  border-radius: var(--radius-pill);
+  font-size: inherit;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(44, 107, 255, .08);
+}
+.hero-kw-and {
+  color: var(--color-text-sub);
+  font-weight: 700;
+  margin-left: 2px;
 }
 .hero-title-em {
   display: block;
@@ -2708,7 +2731,8 @@ p { margin: 0; }
   .container { padding-left: 3%; padding-right: 3%; }
   .nav { padding: 0 3%; }
   .hero-content { max-width: 520px; }
-  .hero-title-sub { font-size: 13.5px; }
+  .hero-title-sub { font-size: 13px; gap: 6px 6px; margin-bottom: 14px; }
+  .hero-kw { padding: 4px 10px; letter-spacing: 0.04em; }
   .hero-title-em { font-size: clamp(24px, 2.7vw, 32px); }
   .hero-lead { max-width: 500px; font-size: 15px; }
   .hero-visual { width: 44%; right: -2%; max-width: 460px; top: 0; }
@@ -2756,7 +2780,8 @@ p { margin: 0; }
   .hero { padding: calc(var(--header-h) + 16px) 0 80px; }
   .hero-inner { display: flex; flex-direction: column; gap: 32px; min-height: 0; }
   .hero-content { max-width: none; order: 2; }
-  .hero-title-sub { font-size: 13px; margin-bottom: 10px; }
+  .hero-title-sub { font-size: 12.5px; gap: 5px 5px; margin-bottom: 14px; }
+  .hero-kw { padding: 3px 9px; letter-spacing: 0.02em; }
   .hero-title-em { font-size: clamp(24px, 6.4vw, 32px); }
   .hero-lead { font-size: 15px; max-width: none; }
   .hero-cta { flex-direction: column; align-items: stretch; }
