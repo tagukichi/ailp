@@ -22,7 +22,15 @@ get_header(); ?>
       <div class="container hero-inner">
         <div class="hero-content">
           <h1 class="hero-title">
-            <span class="hero-title-sub">「電話」「面談」「コールセンター」「会議」「打合せ」「ＦＡＸ」など</span>
+            <span class="hero-title-sub">
+              <span class="hero-kw"><?php _e('電話', 'xvoice'); ?></span>
+              <span class="hero-kw"><?php _e('面談', 'xvoice'); ?></span>
+              <span class="hero-kw"><?php _e('コールセンター', 'xvoice'); ?></span>
+              <span class="hero-kw"><?php _e('会議', 'xvoice'); ?></span>
+              <span class="hero-kw"><?php _e('打合せ', 'xvoice'); ?></span>
+              <span class="hero-kw">ＦＡＸ</span>
+              <span class="hero-kw-and"><?php _e('など', 'xvoice'); ?></span>
+            </span>
             <span class="hero-title-em">お客様・社員間の<br>コミュニケーションを<br>ＡＩがフルサポートします</span>
           </h1>
           <p class="hero-lead">
