@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!defined('XVOICE_VERSION')) {
-    define('XVOICE_VERSION', '1.2.0');
+    define('XVOICE_VERSION', '1.2.1');
 }
 
 /**
