@@ -40,7 +40,6 @@ if (!defined('ABSPATH')) {
                             <li><a href="<?php echo xvoice_home_anchor('#benefits'); ?>"><?php _e('できること', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo xvoice_home_anchor('#features'); ?>"><?php _e('主な機能', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo esc_url(home_url('/features/')); ?>"><?php _e('機能詳細', 'xvoice'); ?></a></li>
-                            <li><a href="<?php echo xvoice_home_anchor('#support'); ?>"><?php _e('サポート体制', 'xvoice'); ?></a></li>
                         </ul>
                     <?php endif; ?>
                 </div>
@@ -52,7 +51,6 @@ if (!defined('ABSPATH')) {
                         <ul>
                             <li><a href="<?php echo xvoice_home_anchor('#flow'); ?>"><?php _e('トライアルの流れ', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo xvoice_home_anchor('#contact'); ?>"><?php _e('無料トライアル', 'xvoice'); ?></a></li>
-                            <li><a href="<?php echo xvoice_home_anchor('#contact'); ?>"><?php _e('デモ体験', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo xvoice_home_anchor('#faq'); ?>"><?php _e('よくあるご質問', 'xvoice'); ?></a></li>
                             <li><a href="<?php echo esc_url(home_url('/isms/')); ?>"><?php _e('ISMS認証取得', 'xvoice'); ?></a></li>
                         </ul>
@@ -64,6 +62,10 @@ if (!defined('ABSPATH')) {
                         <p><?php _e('株式会社カイゼンテクノロジ', 'xvoice'); ?></p>
                         <p class="footer-company-note"><?php _e('電話業務AIエージェント xVoice 提供', 'xvoice'); ?></p>
                     </div>
+                    <h4 class="footer-col-h4-sub"><?php _e('日本総販売代理店', 'xvoice'); ?></h4>
+                    <div class="footer-company">
+                        <p><?php _e('株式会社キャナルコミュニケーションズ', 'xvoice'); ?></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,7 +74,7 @@ if (!defined('ABSPATH')) {
             <small>&copy; <?php echo esc_html(date_i18n('Y')); ?> Kaizen Technology Co., Ltd. All rights reserved.</small>
             <ul class="footer-legal">
                 <li><a href="<?php echo esc_url(home_url('/isms/')); ?>"><?php _e('ISMS認証取得', 'xvoice'); ?></a></li>
-                <li><a href="#"><?php _e('プライバシーポリシー', 'xvoice'); ?></a></li>
+                <li><a href="<?php echo esc_url(home_url('/privacypolicy/')); ?>"><?php _e('プライバシーポリシー', 'xvoice'); ?></a></li>
                 <li><a href="#"><?php _e('利用規約', 'xvoice'); ?></a></li>
                 <li><a href="#"><?php _e('特定商取引法', 'xvoice'); ?></a></li>
             </ul>
